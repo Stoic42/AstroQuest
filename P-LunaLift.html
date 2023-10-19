@@ -1,0 +1,410 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AstroQuest - LunaLift</title>
+<link rel="icon" type="image/x-icon" href="astronaut-helmet.ico">
+<style>
+    
+	th{
+		font-size:13pt;
+		text-align:left;
+		color:#461629;
+		text-shadow:0 0 0 transparent;
+	}
+	td{
+		color:#BA2F7B;
+		font-style: italic;
+	}
+	table{
+		display:inline-table;
+		font-family:Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif";
+		text-shadow:0 1px black;
+		padding:6px;
+		height:600px;
+		background-color:hsla(333,29%,88%,1.00);
+		border:3px solid 411C35;	
+	}
+	@media screen and (min-width: 800px) {
+  table {
+  width: 100%;
+    }
+    #leftT{
+        margin-right:0%;
+    }
+    
+    #right{
+        margin-left:0%;
+    }
+}
+
+/* if the browser window is at least 1000px-s wide: */
+@media screen and (min-width: 1500px) {
+  table {
+  width: 48.8%;}
+    #leftT{
+        margin-right:2%;
+    }
+    
+    #right{
+        margin-left:2%;
+    }
+}
+
+    
+	td, th{
+		padding:6px;
+	}
+	
+	table a:link{
+		color:inherit;
+		text-decoration: none;
+	}
+	
+	table a:hover{
+		color:inherit;
+		text-decoration: underline;
+	}
+	table a:visited{
+		text-decoration:none;
+	}
+	
+	a.contra:link{
+		color:inherit;
+		text-decoration: none;
+	}
+	
+	a.contra:hover{
+		background-color:#BA2F7B;
+		color:#E9D8E0;
+		text-decoration: none;
+	}
+	img.contra:hover{
+		opacity:0.8;
+	}
+    th a:hover{
+        color:#E9D8E0;
+        background-color:#46162E;
+        text-decoration: 1px wavy underline;
+    }
+	p,h1 {
+	color:#C35691;
+  line-height:150%;
+	word-wrap: break-word;
+  }
+	body{
+		margin-left:5%;
+		margin-right:5%;
+		background-color:#1E131D;
+
+	}
+	hr{
+		border-style:dashed;
+		color:#1E131D;
+	}
+	
+	.navbar {
+		font-family:Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+  overflow: hidden;
+  background-color:#461629;
+		position:static;
+}
+
+	a:link{
+		text-decoration:none;
+		color:inherit;
+	}
+	
+	a:hover{
+		text-decoration:underline;
+	}
+		a:visited{
+		text-decoration:none;
+		color:inherit;
+	}
+	
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: #E9D7DF;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+	z-index: 10;
+}
+
+.dropdown {
+  float: left;
+  overflow: visible;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: #E9D7DF;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family:Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+  margin: 0;
+	
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color:#1C0D1A;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #E9D7D3;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+
+.dropdown-content a {
+  float: none;
+  color: #1C0D1A;
+  padding: 12px 16px;
+  text-decoration: none;
+	min-width: 100px;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #CAA2B4;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+	
+* {box-sizing:border-box}
+
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-height:80%;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: black;
+
+  text-shadow: #E9D7DF 2px 0 10px;
+  -webkit-text-stroke: 1px white;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+	text-align:left;
+	margin-left:5%;
+	padding-bottom: 40px;
+	font-size:50px;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #E9D7DF;
+  border-radius: 25%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #461629;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+	
+html:not([data-scroll='0']) .dropdown-content{
+		position:relative;
+		z-index: 999;
+	}
+	html:not([data-scroll='0']) .navbar {
+		position:sticky;
+		top:0;
+		z-index:999;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width : 1467px ){
+  .prev, .next,.text {font-size: 11px}
+
+</style>
+</head>
+
+<body>
+<div class="navbar" >
+  <a href="P-home.html" style="padding:2px 6px 2px 6px;"><svg t="1696737759827" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8083" width="45"><path d="M374.4 608c3.36-1.28 4-1.92 4-8s-6.72-4.64-18.72-17.92a122.08 122.08 0 0 1-30.72-77.28c-3.36-41.92 34.08-86.72 40.64-98.72s0-26.88-8.64-26.72c-101.28 3.36-112 88-114.08 108.64s-1.28 78.72 36.64 104.64a124.64 124.64 0 0 0 90.88 15.36z m-93.92-162.56c10.72-21.28 26.08-45.28 58.08-49.92 7.36-1.12 12 4.64 8.64 7.36s-43.36 48-41.28 96S320 568.16 327.68 576s11.36 11.36 9.28 13.28a75.84 75.84 0 0 1-60.64-35.36c-20.32-31.68-6.56-87.04 4.16-108.48z m394.72-53.92c2.08 0 3.36-2.72 3.36-6.72a69.12 69.12 0 0 0-29.92-21.92 7.52 7.52 0 0 0-2.72 10.72 205.28 205.28 0 0 0 29.12 17.92z m-21.92 50.08c2.72 1.28 56 28 58.08 28s2.08-4 2.08-8a293.6 293.6 0 0 0-59.36-33.28c-3.68 0.48-3.68 11.84-0.96 13.12z m0 45.28c3.36 3.36 61.28 36.64 64 37.28s1.28-5.28 1.28-9.28a372.64 372.64 0 0 0-61.28-40c-2.24 0-7.52 8.64-4.16 12z m1.28 37.28s-5.28 9.28-4.64 12.64a706.88 706.88 0 0 0 62.08 38.08s4.64-5.28 4-8.64a368 368 0 0 0-61.6-42.08z m50.72 106.72c2.72 1.28 3.36-4.64 4.64-7.36s-72-51.36-72-51.36-7.36 8.64-7.36 11.36 71.84 45.92 74.56 47.36z m-25.28 39.36a35.2 35.2 0 0 0 7.36-5.92 476.64 476.64 0 0 0-64-52c-4 0-8.64 4.64-8 8s64.32 49.92 64.32 49.92z m-82.24-25.44a16 16 0 0 0-7.36 9.28 512 512 0 0 0 54.72 41.28 35.2 35.2 0 0 0 7.36-5.92 291.36 291.36 0 0 0-54.72-44.64z m-128-248.64c2.08 1.28-11.36 18.72-11.36 18.72s5.28 8 7.36 8a35.68 35.68 0 0 0 12-10.72c1.28-2.72 9.28 11.36 9.28 11.36l10.08-4a164.16 164.16 0 0 1-7.36-23.36c0-4 22.72 0 22.72 0a16 16 0 0 0 2.72-6.72c0-2.72-6.72-6.72-6.72-6.72s3.36-9.28 1.28-12-20.64 7.36-20.64 7.36-1.28-16-1.28-19.36-4.64-3.36-9.28-1.92-5.92 24-5.92 24a51.68 51.68 0 0 0-16-1.28 14.4 14.4 0 0 0-3.36 9.28c-0.16 2.72 14.4 6.08 16.48 7.36z m87.2 208s3.2 4.8 4.32 4.8a21.12 21.12 0 0 0 7.04-6.24c0-1.6 5.44 6.72 5.44 6.72l5.92-2.4a97.12 97.12 0 0 1-3.68-13.44c0-2.4 13.44 0 13.44 0a9.76 9.76 0 0 0 1.6-4c0-1.6-4-4-4-4s1.92-5.44 0-7.04-12.16 4.32-12.16 4.32v-11.36c0-1.44-2.72-1.92-5.44-1.12s-3.52 14.24-3.52 14.24a30.56 30.56 0 0 0-9.44 0 8.48 8.48 0 0 0-1.92 5.44c0 1.6 8.64 3.52 9.92 4.32s-7.52 10.24-7.52 10.24z m-186.08 36.8s-1.92 7.36-2.72 9.28-8-1.28-10.72-1.92-2.72 4-2.72 8 13.28 6.72 13.28 6.72l-10.72 10.72a113.76 113.76 0 0 0 11.36 7.36c2.08 0 7.36-8.64 7.36-8.64l9.28 12.64h6.72l-1.92-14.72h10.72a30.72 30.72 0 0 0 0-12c-1.28-3.36-16-3.36-16-3.36s-2.72-16-5.92-17.28-5.28 2.24-8 3.68z m81.12-98.72s4 14.72 8 14.72h8l-1.92-16s10.08-1.92 16-2.72 0-5.92 0-8.64-13.28-1.28-17.92-1.28-3.36-10.72-3.36-12.64-11.36 3.36-13.92 4.64v9.28h-5.92v6.72c0 2.08 11.04 6.56 11.04 6.56z m124-72s4 14.72 8 14.72h8l-1.92-16s10.08-1.92 16-2.72 0-5.92 0-8.64-13.28-1.28-17.92-1.28-3.36-10.72-3.36-12.64-11.36 3.36-13.92 4.64v9.28h-5.92v6.72c0 2.08 11.04 5.92 11.04 5.92z m-94.08 158.4c-1.28-3.36-9.28-2.72-12-1.28a32 32 0 0 0-1.92 16c0 4-3.36 2.08-8 5.28s0 14.08 0 14.08l12.64 5.28 6.08-8.64a59.68 59.68 0 0 1 6.08 8c1.28 2.72 12-4.64 12-4.64l5.6-6.72-9.28-19.36s-9.44-4.8-10.72-8.16z m402.56-401.76s28-60.64-11.36-73.28-62.72 13.28-61.28 41.28 38.08 40 38.08 40 9.28 200 9.28 202.72a151.04 151.04 0 0 1-34.72 1.28s0-17.28-1.28-32S800 387.52 800 387.52s-18.72-104.64-50.72-138.08-86.88-109.28-217.6-117.28-192 13.28-281.28 78.72S147.04 400 147.04 400c-5.92 0-23.36 1.28-28 9.28s2.08 108.64 5.28 118.08 44 19.36 44 19.36a456 456 0 0 0 16 46.72c10.72 26.72 28.64 64 28.64 64s-36 75.36-32 85.28 51.36 64 120 104 194.72 68 304 27.36 203.36-128 204-133.92-40-109.28-40-109.28a85.12 85.12 0 0 0 16-35.36 222.4 222.4 0 0 0 6.72-55.36s26.72-5.28 32-13.92a156.96 156.96 0 0 0 3.36-48s58.08 4.64 64 3.36 14.72-4 16-13.28-22.56-241.44-22.56-241.44zM519.04 158.24a213.44 213.44 0 0 1 2.08 36c-1.92 0-20 2.08-20 2.08L496 158.24c2.4-0.8 23.04 0 23.04 0z m-91.36 3.36a171.52 171.52 0 0 1 32-1.28 536.64 536.64 0 0 1 2.08 56 92.96 92.96 0 0 1-27.36 2.08 279.36 279.36 0 0 1-6.72-56.96z m-60.64 17.28s5.28 24 2.08 25.28a112 112 0 0 1-19.36 1.28l-4-18.72c2.72-1.28 21.28-7.84 21.28-7.84zM171.04 522.24a23.68 23.68 0 0 1-17.92-1.92c-1.92-2.72-11.36-90.72-6.72-94.72 0 0 24.64-2.72 25.28 2.08a743.68 743.68 0 0 1-0.64 94.56z m24-119.36s-22.72 2.08-24.64 0A284.8 284.8 0 0 1 229.76 272a259.52 259.52 0 0 1 100-78.72s1.28 26.08 4.64 27.36a161.12 161.12 0 0 0 50.72-2.72c2.72-4-4-46.72-1.92-48a101.6 101.6 0 0 1 29.28-5.28 518.08 518.08 0 0 0 4.64 64 109.76 109.76 0 0 0 36 3.36 51.52 51.52 0 0 0 28-8c0-1.92-8.64-64-6.72-64a55.68 55.68 0 0 1 6.72-1.28s3.36 56.64 7.36 56 50.72-1.92 50.08-7.36-7.36-52-3.36-51.36a262.08 262.08 0 0 1 139.36 58.08C736 266.24 768 377.44 766.4 378.88a80 80 0 0 1-11.36 4s-87.36-89.92-170.72-103.36-151.36-21.92-238.72 18.08a560 560 0 0 0-150.56 105.28z m3.36 145.28v-115.36a632.64 632.64 0 0 1 142.08-103.36c66.72-32 153.28-33.28 213.28-23.36s113.28 49.28 150.72 75.36 40.64 35.36 40.64 35.36a998.08 998.08 0 0 0 4.64 104 68.64 68.64 0 0 0 12 16 258.08 258.08 0 0 1-25.76 72 257.12 257.12 0 0 1-61.28 80A414.08 414.08 0 0 1 622.4 720s-45.28-44-48-44.64-13.28 7.36-11.36 11.36 50.08 38.72 46.08 41.28a397.12 397.12 0 0 1-137.28 29.28 296.8 296.8 0 0 1-189.92-73.28 385.28 385.28 0 0 1-83.52-135.84zM251.04 768a174.88 174.88 0 0 1-40.64-33.28 183.04 183.04 0 0 1 21.28-51.36c3.52 2.4 21.28 22.72 32 32a145.6 145.6 0 0 0 16 12.64s-24.64 40.8-28.64 40z m18.08 16c-1.92 0-9.92-1.28-8-4s25.28-48 28-50.72 8 2.08 6.72 4-24.8 51.52-26.72 51.52z m18.08 16c-2.72-1.28-7.36-2.72-7.36-4.64s25.28-52 25.28-52l6.72 4a378.72 378.72 0 0 1-24.8 53.44z m487.2-66.56a29.28 29.28 0 0 1-7.36 6.72 352 352 0 0 0-28.64-46.72c-3.36 0-10.72 11.36-10.72 11.36s26.72 39.36 24 43.36a83.84 83.84 0 0 1-18.72 12 240.96 240.96 0 0 0-22.72-38.72c-4-1.28-14.72 6.72-13.28 10.08s24.64 39.36 24.64 39.36-13.28 12-16 10.72-19.36-34.72-21.92-34.72-10.72 9.28-10.72 9.28 24.64 32 22.08 34.72l-12 9.28-22.72-33.92s-9.92 4-9.92 6.72 23.36 38.08 22.08 40-39.36 32-124 42.08-137.92 2.08-184.64-13.28-64-29.92-65.28-32a226.72 226.72 0 0 1 23.36-56 286.72 286.72 0 0 0 126.72 33.28c77.28 3.36 104.64 2.08 172.64-32a352.8 352.8 0 0 0 104-72 181.92 181.92 0 0 1 23.36-20s27.04 67.84 25.76 70.4z m22.08-225.92a20.8 20.8 0 0 1-17.28 2.08c-1.28-1.92-1.28-100.64 0-101.28s17.28 2.08 18.08 6.08a726.88 726.88 0 0 1-0.8 93.12zM848 214.88a24.16 24.16 0 0 1 3.36-44.64c15.2-5.76 24.64 6.72 26.72 23.36A20.8 20.8 0 0 1 848 214.88z m41.28 244.64a188.96 188.96 0 0 1-57.92 2.08c-2.72-1.92 0-9.28 0-9.28s44.64 0 44.64-4-8-134.72-4-137.92 4.64 1.28 6.72 5.28a1307.52 1307.52 0 0 1 10.4 143.84z" fill="#E9D7DF" p-id="8084"></path></svg><font style="font-family:Constantia, 'Lucida Bright', 'DejaVu Serif', Georgia, 'serif';font-size:50%;line-height: 0px">AstroQuest</font></a>
+  <a href="P-aboutme.html">About</a>
+  <div class="dropdown">
+    <button class="dropbtn">Routes<font  style="font-weight: normal;font-family:'站酷庆科黄油体';font-size:100%;color:#B31312;text-shadow: hsla(336,52%,18%,1.00) 1px 0 10px ;color:"><sup>New!</sup></font> 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="P-Venus.html">Venus</a>
+      <a href="P-Ceres.html">Ceres</a>
+      <a href="P-Europa.html">Europa<font  style="font-weight: normal;font-family:'站酷庆科黄油体';font-size:100%;color:#B31312;text-shadow: hsla(336,52%,18%,1.00) 1px 0 10px;"><sup>New!</sup></font> </a>
+    </div>
+  </div> 
+  <div class="dropdown">
+    <button class="dropbtn">AstroQuest<sup>&reg;</sup> 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="P-LunaLift.html">LunaLift&trade;</a>
+      <a href="P-SpaceLink.html">SpaceLink&trade;</a>
+	  <a href="P-CosmoSail.html">CosmoSail&trade;</a>
+    </div>
+  </div> 
+	  <a href="P-News.html">News</a>
+	  <a href="P-Gallery.html">Gallery</a>
+	  <a href="P-Contact.html">Contact</a>
+</div>
+
+	
+	
+	<!--div style="postion:sticky;top:0;width:100%;background-color:#1E131D;color:#CCCCD6;padding:10px;line-height:10%"><nav class="crumbs">
+  <ol>
+    <li class="crumb"><a href="P-home.html" style="color:#CCCCD6;">Homepage </a></li>
+	  <li class="crumb"><a href="P-aboutme.html">About</a></li>
+	  <li class="crumb"><a href="P-aboutme.html">Destinations</a></li>
+	  <li class="crumb"><a href="P-aboutme.html">Our Service</a></li>
+	  <li class="crumb"><a href="P-aboutme.html">History</a></li>
+	  <li class="crumb"><a href="P-aboutme.html">Scenery</a></li>
+	  <li class="crumb"><a href="P-aboutme.html">Contact</a></li>
+  </ol>
+</nav></div-->
+	
+<!-- Slideshow container -->
+	<div class="mySlides fade" style="width:100%;height:585.5px;z-index:0;background-image:url('https://i.pinimg.com/originals/6b/9a/60/6b9a6045417a9b043d842ac0bec3ffa4.jpg');background-size:cover;background-position:center bottom;">
+	<div class="text" style="text-align:middle;top:100px;font-size:250%;-webkit-text-stroke:0px;color:white;text-shadow:1px 1px hsla(250,60%,2%,1.00);font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', 'serif';width:400px">LunaLift<br><font style="font-size:20px;font-family:'等线'">Intergalactic delivery</font></div>
+</div>
+    
+	<table id="leftT">
+        <tr><th colspan="2"><a href="https://www.businessinsider.com/uber-eats-first-delivery-in-space-japanese-billionaire-astronaut-iss-2021-12#:~:text=Uber%20Eats%20made%20its%20first,than%2030%20minutes%20to%20arrive.">Uber Eats makes its first-ever delivery to space</a><hr style="border-style: solid"></th></tr>
+        <tr><td colspan="2">
+            <a href="https://www.businessinsider.com/uber-eats-first-delivery-in-space-japanese-billionaire-astronaut-iss-2021-12#:~:text=Uber%20Eats%20made%20its%20first,than%2030%20minutes%20to%20arrive."><img alt="Uber Eats in Space" class="contra" src="https://i.insider.com/61b88379a3524e0019e30153?width=1000&format=jpeg&auto=webp" style="float:left;margin-right:10px;width:200px;margin-right:15px"></a>Uber Eats completed its first delivery in space after Japanese billionaire Yusaku Maezawa handed out food to astronauts in the International Space Station (ISS).<br><br>
+            Maezawa, who previously bought tickets on a SpaceX rocket, blasted into space on Wednesday from the Baikonur Cosmodrome in Kazakhstan for a 12-day trip to the ISS.<br><br>
+            <img src="https://i.insider.com/61b886d6a3524e0019e3018a?width=800&format=jpeg&auto=webp" style="float:right;margin-right:10px;width:150px;margin-right:15px;border:3px solid hsla(327,61%,46%,1.00)">After his nearly nine-hour rocket ride to the ISS, Maezawa on Saturday hand-delivered Japanese food via Uber Eats to astronauts currently stationed there, the company said in an emailed statement to Insider. <br><br>
+            It's now the first food delivery service to send food to the ISS, the company claimed in the statement.<br><br>
+           The canned food, which was ready-to-eat, included a beef bowl cooked in a sweet sauce, boiled mackerel in miso, chicken with bamboo shoots, and braised pork, Uber Eats said.
+            </td></tr>
+        <tr><td rowspan="2"><iframe width="400" height="298" frameborder="0" src="https://www.bbc.com/news/av-embeds/42968358"></iframe></td><th><hr style="border-style: solid"><a href="https://www.bbc.com/news/av/world-42968358">The oddities sent into space</a><hr style="border-style: solid"></th></tr>
+        <tr><td style="vertical-align: top;">A car, a golf ball, a pie... and other items items dispatched on cosmic journeys over the years.</td></tr>
+<tr><th colspan="2"><a href="https://video.vice.com/en_us/video/sending-pizza-to-outer-space/564a0dc5a1449eb70b2e5def">Sending Pizza to Outer Space</a><hr style="border-style: solid"></th></tr>
+        <tr><td><iframe width="1013" height="570" src="https://www.youtube.com/embed/LBTZFS4yzSM" style="float:left;margin-right:10px;width:400px;height:280px;margin-right:15px" title="Sending Pizza to Outer Space" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></td><td>It's a poetry drone! It's a solar plane! It's...a single slice of classic cheese 'za mounted to a weather balloon that's pumping EDM out into the heavens? Well, of course it is. That's because when Anamanaguchi decides to make a music video the sky is always the limit, and the... <p style="text-align: right;font-style: normal;line-height:1px;margin-right:3px;"><a class="contra" href="https://video.vice.com/en_us/video/sending-pizza-to-outer-space/564a0dc5a1449eb70b2e5def">&#129030; Read More</a></p></td></tr>
+        <tr><th colspan="2"><a href="https://dribbble.com/shots/6957870-Intergalactic-Ramen-Delivery">Intergalactic Ramen Delivery !</a><hr style="border-style: solid"></th></tr>
+        <tr>
+<td colspan="2"><a href="https://dribbble.com/shots/6957870-Intergalactic-Ramen-Delivery"><img class="contra" src="https://cdn.dribbble.com/users/3112055/screenshots/6957870/media/b7e51be1de6d309be53f604e204ad4dd.jpg?resize=1000x750&vertical=center" width="100%"></a></td></tr>
+        <tr><td colspan="2">Another design made from space for Talister ! <a href="https://dribbble.com/paiheme_studio"><img class="contra" src="https://cdn.dribbble.com/users/3112055/avatars/small/b7b47dc09fcaee60415deb122f45b030.png?1595405002" style="float:right;width:65px;margin:20px;"></a><br>T-shirt collab available <a class="contra" href="https://bit.ly/2M087MK">&#129030;here</a><br><br>
+        Follow me on :<br>
+          <a class="contra" href="https://www.instagram.com/paiheme/"><svg t="1697036876873" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4014" width="12" height="12"><path d="M512 756.48a245.824 245.824 0 0 1-245.632-245.248A244.864 244.864 0 0 1 512 265.984a244.864 244.864 0 0 1 245.632 245.248A244.864 244.864 0 0 1 512 756.416z m0-396.8A151.744 151.744 0 0 0 360.32 511.296 150.784 150.784 0 0 0 512 662.72c84.48 0 151.744-67.2 151.744-151.488a151.744 151.744 0 0 0-151.68-151.488z" fill="#BA2F7B" p-id="4015"></path><path d="M768.576 981.312H257.024a214.464 214.464 0 0 1-214.4-213.952V256.64A213.504 213.504 0 0 1 257.088 42.688h511.552a213.12 213.12 0 0 1 212.736 213.952v510.72c0 117.12-95.36 213.952-212.736 213.952zM257.024 136.384c-67.264 0-120.512 53.12-120.512 120.256v510.72c0 65.6 53.248 120.32 120.512 120.32h511.552c65.728 0 120.448-53.12 120.448-120.32V256.64c-1.536-67.2-54.72-120.32-120.448-120.32H257.024z" fill="#BA2F7B" p-id="4016"></path></svg> Instagram</a> | 
+            <a class="contra" href="https://www.behance.net/paiheme_"><svg t="1697036953911" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5368" width="12" height="12"><path d="M932.571429 54.857143H91.428571c-20.228571 0-36.571429 16.342857-36.571428 36.571428v841.142858c0 20.228571 16.342857 36.571429 36.571428 36.571428h841.142858c20.228571 0 36.571429-16.342857 36.571428-36.571428V91.428571c0-20.228571-16.342857-36.571429-36.571428-36.571428zM610.857143 327.885714h158.171428v38.514286H610.857143v-38.514286zM512 645.485714a102.308571 102.308571 0 0 1-30.857143 35.428572c-13.485714 9.371429-28.457143 16.228571-44.342857 20.228571a191.314286 191.314286 0 0 1-50.971429 6.514286H196.571429V317.828571h184c18.628571 0 35.542857 1.714286 50.971428 4.914286 15.314286 3.2 28.342857 8.685714 39.314286 16.114286 10.857143 7.428571 19.428571 17.371429 25.485714 29.714286 5.942857 12.228571 9.028571 27.542857 9.028572 45.714285 0 19.657143-4.457143 35.885714-13.371429 49.028572-9.028571 13.142857-22.057143 23.771429-39.771429 32.114285 24.114286 6.857143 41.828571 19.085714 53.485715 36.228572 11.885714 17.371429 17.714286 38.171429 17.714285 62.628571 0 19.885714-3.771429 36.914286-11.428571 51.2zM830.628571 585.142857H626.742857c0 22.171429 7.657143 43.428571 19.2 54.857143 11.657143 11.314286 28.342857 17.028571 50.171429 17.028571 15.771429 0 29.142857-4 40.571428-11.885714 11.314286-7.885714 18.171429-16.228571 20.685715-24.914286h68.342857c-10.971429 33.942857-27.657143 58.171429-50.285715 72.8-22.4 14.628571-49.828571 21.942857-81.714285 21.942858-22.285714 0-42.285714-3.657143-60.228572-10.628572-17.257143-6.742857-32.8-17.028571-45.6-30.285714a138.514286 138.514286 0 0 1-28.685714-47.085714c-6.971429-19.314286-10.4-39.657143-10.171429-60.114286 0-21.142857 3.542857-40.8 10.4-59.085714 13.142857-35.542857 40.457143-64 75.314286-78.742858 18.628571-7.771429 38.628571-11.657143 58.857143-11.428571 24 0 44.8 4.571429 62.857143 13.942857a127.542857 127.542857 0 0 1 44.114286 37.485714c11.542857 15.657143 19.657143 33.485714 24.8 53.6 4.914286 19.771429 6.628571 40.571429 5.257142 62.514286z m-139.428571-109.257143c-12.342857 0-22.742857 2.171429-30.742857 6.4-8 4.228571-14.628571 9.485714-19.657143 15.542857a55.314286 55.314286 0 0 0-10.4 19.885715c-1.828571 6.057143-3.085714 12.228571-3.542857 18.514285H753.142857c-1.828571-19.771429-8.685714-34.4-17.828571-44.685714-9.6-10.171429-25.028571-15.657143-44.114286-15.657143z m-284-11.542857c9.942857-7.2 14.742857-19.085714 14.742857-35.428571 0.342857-7.771429-1.257143-15.428571-4.685714-22.4-3.085714-5.6-7.657143-10.285714-13.257143-13.6a51.2 51.2 0 0 0-18.971429-6.857143c-7.314286-1.371429-14.742857-2.057143-22.057142-1.942857h-80.342858v91.085714h86.971429c14.971429 0.114286 27.657143-3.542857 37.6-10.857143z m13.485714 82.285714c-11.2-8.571429-26.171429-12.8-44.8-12.8h-93.485714v107.428572h91.657143c8.571429 0 16.457143-0.8 24.114286-2.4s14.514286-4.342857 20.342857-8.228572c5.828571-3.771429 10.514286-8.914286 14.057143-15.542857 3.428571-6.628571 5.142857-15.085714 5.142857-25.257143 0-20.228571-5.714286-34.514286-17.028572-43.2z" p-id="5369" fill="#BA2F7B"></path></svg>Behance</a></td></tr>
+	</table>
+	
+		<table id="rightT">
+            <tr><th><a href="https://twitter.com/unitsheffield/status/1472990039000985603">News Feed</a><hr style="border-style: solid"></th></tr>
+            <tr><td><center><blockquote class="twitter-tweet" data-theme="light"><p lang="en" dir="ltr"><a href="https://twitter.com/NikoOmilana?ref_src=twsrc%5Etfw">@NikoOmilana</a> sent our food into space<br>馃崝馃崯馃殌<br>Watch the video<a href="https://t.co/GFtLamGfRd">https://t.co/GFtLamGfRd</a><a href="https://twitter.com/hashtag/space?src=hash&amp;ref_src=twsrc%5Etfw">#space</a> <a href="https://twitter.com/hashtag/food?src=hash&amp;ref_src=twsrc%5Etfw">#food</a> <a href="https://twitter.com/hashtag/sheffieldissuper?src=hash&amp;ref_src=twsrc%5Etfw">#sheffieldissuper</a><a href="https://twitter.com/hashtag/NASA?src=hash&amp;ref_src=twsrc%5Etfw">#NASA</a> <a href="https://twitter.com/hashtag/ViralVideo?src=hash&amp;ref_src=twsrc%5Etfw">#ViralVideo</a> <a href="https://twitter.com/hashtag/foodyoucrave?src=hash&amp;ref_src=twsrc%5Etfw">#foodyoucrave</a><a href="https://twitter.com/hashtag/SpaceX?src=hash&amp;ref_src=twsrc%5Etfw">#SpaceX</a> <a href="https://twitter.com/hashtag/milkshake?src=hash&amp;ref_src=twsrc%5Etfw">#milkshake</a> <a href="https://twitter.com/hashtag/burger?src=hash&amp;ref_src=twsrc%5Etfw">#burger</a> <a href="https://twitter.com/firstwefeast?ref_src=twsrc%5Etfw">@firstwefeast</a><a href="https://twitter.com/FoodNetwork?ref_src=twsrc%5Etfw">@FoodNetwork</a><a href="https://twitter.com/insiderfood1?ref_src=twsrc%5Etfw">@insiderfood1</a><a href="https://twitter.com/SheffieldBID?ref_src=twsrc%5Etfw">@SheffieldBID</a><a href="https://twitter.com/SheffieldStar?ref_src=twsrc%5Etfw">@SheffieldStar</a><a href="https://twitter.com/eatSheffield?ref_src=twsrc%5Etfw">@eatSheffield</a><a href="https://twitter.com/SentInto_Space?ref_src=twsrc%5Etfw">@SentInto_Space</a> <a href="https://t.co/Ff23fyRqc8">pic.twitter.com/Ff23fyRqc8</a></p>&mdash; unitsheffield (@unitsheffield) <a href="https://twitter.com/unitsheffield/status/1472990039000985603?ref_src=twsrc%5Etfw">December 20, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
+    </td>
+    </tr>      
+
+			<tr><th><a href="https://www.planet.com/pulse/launching-planet-pantry-a-delivery-service-of-intergalactic-proportions/">Launching Planet Pantry: A Delivery Service Of Intergalactic Proportions</a><hr style="border-style: solid"></th></tr>
+            <tr><td>Like the rest of the world, we at Planet recently watched as SpaceX ushered in the future of human space flight with the successful automated docking of the Crew Dragon capsule to the International Space Station (ISS). This got us thinking: with so many new humans in space, how are we going to feed them and supply them with the necessities of daily life?<br><br>Since the launch of our first satellite in April 2013, our small satellites have often been compared to a range of commodity goods and appliances: shoe boxes, loaves of bread, microwaves, toasters, pizza boxes, a briefcase, pints (of beer?), mini-fridges, and more. It occurred to us that our Dove satellites could be pulling double duty. Why just take pictures of Earth every day when, on your way to work, you can drop off a pepperoni pizza to hardworking astronauts aboard the ISS?<br><br>Gone are the days of astronauts sitting down after a long day of lunar walks to a foil packet of freeze-dried tomato soup. With Planet Pantry, astronauts and future space cadets will get <big><b>pizza, avocado toast, or a mini-fridge full of LaCroix, delivered right to their airlock door.</b></big><br>
+		<a class="contra" href="https://www.planet.com/pulse/launching-planet-pantry-a-delivery-service-of-intergalactic-proportions/"><p style="text-align: left;line-height: 9px;"><img class="contra" src="https://storage.googleapis.com/corpeng-pulse-assets/uploads/2019/03/Hadfield2.jpg" width="100%"><br>
+            <font class="contra" style="font-style:normal;font-size: 50%;opacity: 80%;">Planet Pantry: in space to shower astronauts with empty carbs and 21st century kitchen appliances. Planet Pantry delivered its first toaster on April Fools鈥?Day, 2020. Source: planet.com</font></p></a><big><b><u>Once astronauts retrieve their goods from our satellite</u></b></big>, they鈥檒l complete the satellite鈥檚 mission by tossing it out of the ISS and into its imaging orbit. Planet Pantry is like Uber, but not because we鈥檙e delivering awesomeness with satellites to people in space.</td></tr></table>
+
+	<hr>
+	<center>
+	<p style="color:hsla(225,34%,28%,1.00);text-shadow:1px 1px #461629">
+		Designed by &copy;Jenny 211323 2023<br>Part of project CP35214 - instructed by Prof. Jude</p></center>
+</body>
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+	
+document.addEventListener('scroll', () => {
+  document.documentElement.dataset.scroll = window.scrollY;
+});
+</script>
+
+</html>

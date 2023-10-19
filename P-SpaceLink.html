@@ -1,0 +1,395 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AstroQuest - SpaceLink</title>
+<link rel="icon" type="image/x-icon" href="astronaut-helmet.ico">
+<style>
+    
+	th{
+		font-size:13pt;
+		text-align:left;
+		color:#461629;
+		text-shadow:0 0 0 transparent;
+	}
+	td{
+		color:#BA2F7B;
+		font-style: italic;
+	}
+	table{
+		display:inline-table;
+		font-family:Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif";
+		text-shadow:0 1px black;
+		padding:6px;
+		height:600px;
+		background-color:hsla(333,29%,88%,1.0);
+		border:3px solid 411C35;	
+	}
+	@media screen and (min-width: 800px) {
+  table {
+  width: 100%;}
+}
+    
+    hr.header{
+        border-style: solid;
+    }
+
+/* if the browser window is at least 1000px-s wide: */
+@media screen and (min-width: 1500px) {
+  table {
+  width: 48.8%;}
+}
+    #leftT{
+        margin-right:2%;
+    }
+    
+    #right{
+        margin-left:2%;
+    }
+    
+	td, th{
+		padding:6px;
+	}
+	
+	table a:link{
+		color:inherit;
+		text-decoration: none;
+	}
+	
+	table a:hover{
+		color:inherit;
+        text-shadow:1px 1px white;
+		text-decoration: none;
+	}
+	table a:visited{
+		text-decoration:none;
+	}
+	
+	a.contra:link{
+		color:inherit;
+		text-decoration: none;
+	}
+	
+	a.contra:hover{
+		background-color:#BA2F7B;
+		color:hsla(332,27%,88%,1.00);
+        text-shadow:none;
+		text-decoration: none;
+	}
+	img.contra:hover{
+		opacity:0.8;
+	}
+
+	p,h1 {
+	color:#C35691;
+  line-height:150%;
+	word-wrap: break-word;
+  }
+	body{
+		margin-left:5%;
+		margin-right:5%;
+		background-color:#1E131D;
+
+	}
+	hr{
+		border-style:dashed;
+		color:#1E131D;
+	}
+	
+	.navbar {
+		font-family:Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+  overflow: hidden;
+  background-color:#461629;
+		position:static;
+}
+
+	a:link{
+		text-decoration:none;
+		color:inherit;
+	}
+	
+	a:hover{
+		text-decoration:underline;
+	}
+		a:visited{
+		text-decoration:none;
+		color:inherit;
+	}
+	
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: #E9D7DF;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+	z-index: 10;
+}
+
+.dropdown {
+  float: left;
+  overflow: visible;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: #E9D7DF;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family:Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+  margin: 0;
+	
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color:#1C0D1A;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #E9D7D3;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+
+.dropdown-content a {
+  float: none;
+  color: #1C0D1A;
+  padding: 12px 16px;
+  text-decoration: none;
+	min-width: 100px;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #CAA2B4;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+	
+* {box-sizing:border-box}
+
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-height:80%;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: black;
+
+  text-shadow: #E9D7DF 2px 0 10px;
+  -webkit-text-stroke: 1px white;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+	text-align:left;
+	margin-left:5%;
+	padding-bottom: 40px;
+	font-size:50px;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #E9D7DF;
+  border-radius: 25%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #461629;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+	
+html:not([data-scroll='0']) .dropdown-content{
+		position:relative;
+		z-index: 999;
+	}
+	html:not([data-scroll='0']) .navbar {
+		position:sticky;
+		top:0;
+		z-index:999;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width : 1467px ){
+  .prev, .next,.text {font-size: 11px}
+
+</style>
+</head>
+
+<body>
+<div class="navbar" >
+  <a href="P-home.html" style="padding:2px 6px 2px 6px;"><svg t="1696737759827" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8083" width="45"><path d="M374.4 608c3.36-1.28 4-1.92 4-8s-6.72-4.64-18.72-17.92a122.08 122.08 0 0 1-30.72-77.28c-3.36-41.92 34.08-86.72 40.64-98.72s0-26.88-8.64-26.72c-101.28 3.36-112 88-114.08 108.64s-1.28 78.72 36.64 104.64a124.64 124.64 0 0 0 90.88 15.36z m-93.92-162.56c10.72-21.28 26.08-45.28 58.08-49.92 7.36-1.12 12 4.64 8.64 7.36s-43.36 48-41.28 96S320 568.16 327.68 576s11.36 11.36 9.28 13.28a75.84 75.84 0 0 1-60.64-35.36c-20.32-31.68-6.56-87.04 4.16-108.48z m394.72-53.92c2.08 0 3.36-2.72 3.36-6.72a69.12 69.12 0 0 0-29.92-21.92 7.52 7.52 0 0 0-2.72 10.72 205.28 205.28 0 0 0 29.12 17.92z m-21.92 50.08c2.72 1.28 56 28 58.08 28s2.08-4 2.08-8a293.6 293.6 0 0 0-59.36-33.28c-3.68 0.48-3.68 11.84-0.96 13.12z m0 45.28c3.36 3.36 61.28 36.64 64 37.28s1.28-5.28 1.28-9.28a372.64 372.64 0 0 0-61.28-40c-2.24 0-7.52 8.64-4.16 12z m1.28 37.28s-5.28 9.28-4.64 12.64a706.88 706.88 0 0 0 62.08 38.08s4.64-5.28 4-8.64a368 368 0 0 0-61.6-42.08z m50.72 106.72c2.72 1.28 3.36-4.64 4.64-7.36s-72-51.36-72-51.36-7.36 8.64-7.36 11.36 71.84 45.92 74.56 47.36z m-25.28 39.36a35.2 35.2 0 0 0 7.36-5.92 476.64 476.64 0 0 0-64-52c-4 0-8.64 4.64-8 8s64.32 49.92 64.32 49.92z m-82.24-25.44a16 16 0 0 0-7.36 9.28 512 512 0 0 0 54.72 41.28 35.2 35.2 0 0 0 7.36-5.92 291.36 291.36 0 0 0-54.72-44.64z m-128-248.64c2.08 1.28-11.36 18.72-11.36 18.72s5.28 8 7.36 8a35.68 35.68 0 0 0 12-10.72c1.28-2.72 9.28 11.36 9.28 11.36l10.08-4a164.16 164.16 0 0 1-7.36-23.36c0-4 22.72 0 22.72 0a16 16 0 0 0 2.72-6.72c0-2.72-6.72-6.72-6.72-6.72s3.36-9.28 1.28-12-20.64 7.36-20.64 7.36-1.28-16-1.28-19.36-4.64-3.36-9.28-1.92-5.92 24-5.92 24a51.68 51.68 0 0 0-16-1.28 14.4 14.4 0 0 0-3.36 9.28c-0.16 2.72 14.4 6.08 16.48 7.36z m87.2 208s3.2 4.8 4.32 4.8a21.12 21.12 0 0 0 7.04-6.24c0-1.6 5.44 6.72 5.44 6.72l5.92-2.4a97.12 97.12 0 0 1-3.68-13.44c0-2.4 13.44 0 13.44 0a9.76 9.76 0 0 0 1.6-4c0-1.6-4-4-4-4s1.92-5.44 0-7.04-12.16 4.32-12.16 4.32v-11.36c0-1.44-2.72-1.92-5.44-1.12s-3.52 14.24-3.52 14.24a30.56 30.56 0 0 0-9.44 0 8.48 8.48 0 0 0-1.92 5.44c0 1.6 8.64 3.52 9.92 4.32s-7.52 10.24-7.52 10.24z m-186.08 36.8s-1.92 7.36-2.72 9.28-8-1.28-10.72-1.92-2.72 4-2.72 8 13.28 6.72 13.28 6.72l-10.72 10.72a113.76 113.76 0 0 0 11.36 7.36c2.08 0 7.36-8.64 7.36-8.64l9.28 12.64h6.72l-1.92-14.72h10.72a30.72 30.72 0 0 0 0-12c-1.28-3.36-16-3.36-16-3.36s-2.72-16-5.92-17.28-5.28 2.24-8 3.68z m81.12-98.72s4 14.72 8 14.72h8l-1.92-16s10.08-1.92 16-2.72 0-5.92 0-8.64-13.28-1.28-17.92-1.28-3.36-10.72-3.36-12.64-11.36 3.36-13.92 4.64v9.28h-5.92v6.72c0 2.08 11.04 6.56 11.04 6.56z m124-72s4 14.72 8 14.72h8l-1.92-16s10.08-1.92 16-2.72 0-5.92 0-8.64-13.28-1.28-17.92-1.28-3.36-10.72-3.36-12.64-11.36 3.36-13.92 4.64v9.28h-5.92v6.72c0 2.08 11.04 5.92 11.04 5.92z m-94.08 158.4c-1.28-3.36-9.28-2.72-12-1.28a32 32 0 0 0-1.92 16c0 4-3.36 2.08-8 5.28s0 14.08 0 14.08l12.64 5.28 6.08-8.64a59.68 59.68 0 0 1 6.08 8c1.28 2.72 12-4.64 12-4.64l5.6-6.72-9.28-19.36s-9.44-4.8-10.72-8.16z m402.56-401.76s28-60.64-11.36-73.28-62.72 13.28-61.28 41.28 38.08 40 38.08 40 9.28 200 9.28 202.72a151.04 151.04 0 0 1-34.72 1.28s0-17.28-1.28-32S800 387.52 800 387.52s-18.72-104.64-50.72-138.08-86.88-109.28-217.6-117.28-192 13.28-281.28 78.72S147.04 400 147.04 400c-5.92 0-23.36 1.28-28 9.28s2.08 108.64 5.28 118.08 44 19.36 44 19.36a456 456 0 0 0 16 46.72c10.72 26.72 28.64 64 28.64 64s-36 75.36-32 85.28 51.36 64 120 104 194.72 68 304 27.36 203.36-128 204-133.92-40-109.28-40-109.28a85.12 85.12 0 0 0 16-35.36 222.4 222.4 0 0 0 6.72-55.36s26.72-5.28 32-13.92a156.96 156.96 0 0 0 3.36-48s58.08 4.64 64 3.36 14.72-4 16-13.28-22.56-241.44-22.56-241.44zM519.04 158.24a213.44 213.44 0 0 1 2.08 36c-1.92 0-20 2.08-20 2.08L496 158.24c2.4-0.8 23.04 0 23.04 0z m-91.36 3.36a171.52 171.52 0 0 1 32-1.28 536.64 536.64 0 0 1 2.08 56 92.96 92.96 0 0 1-27.36 2.08 279.36 279.36 0 0 1-6.72-56.96z m-60.64 17.28s5.28 24 2.08 25.28a112 112 0 0 1-19.36 1.28l-4-18.72c2.72-1.28 21.28-7.84 21.28-7.84zM171.04 522.24a23.68 23.68 0 0 1-17.92-1.92c-1.92-2.72-11.36-90.72-6.72-94.72 0 0 24.64-2.72 25.28 2.08a743.68 743.68 0 0 1-0.64 94.56z m24-119.36s-22.72 2.08-24.64 0A284.8 284.8 0 0 1 229.76 272a259.52 259.52 0 0 1 100-78.72s1.28 26.08 4.64 27.36a161.12 161.12 0 0 0 50.72-2.72c2.72-4-4-46.72-1.92-48a101.6 101.6 0 0 1 29.28-5.28 518.08 518.08 0 0 0 4.64 64 109.76 109.76 0 0 0 36 3.36 51.52 51.52 0 0 0 28-8c0-1.92-8.64-64-6.72-64a55.68 55.68 0 0 1 6.72-1.28s3.36 56.64 7.36 56 50.72-1.92 50.08-7.36-7.36-52-3.36-51.36a262.08 262.08 0 0 1 139.36 58.08C736 266.24 768 377.44 766.4 378.88a80 80 0 0 1-11.36 4s-87.36-89.92-170.72-103.36-151.36-21.92-238.72 18.08a560 560 0 0 0-150.56 105.28z m3.36 145.28v-115.36a632.64 632.64 0 0 1 142.08-103.36c66.72-32 153.28-33.28 213.28-23.36s113.28 49.28 150.72 75.36 40.64 35.36 40.64 35.36a998.08 998.08 0 0 0 4.64 104 68.64 68.64 0 0 0 12 16 258.08 258.08 0 0 1-25.76 72 257.12 257.12 0 0 1-61.28 80A414.08 414.08 0 0 1 622.4 720s-45.28-44-48-44.64-13.28 7.36-11.36 11.36 50.08 38.72 46.08 41.28a397.12 397.12 0 0 1-137.28 29.28 296.8 296.8 0 0 1-189.92-73.28 385.28 385.28 0 0 1-83.52-135.84zM251.04 768a174.88 174.88 0 0 1-40.64-33.28 183.04 183.04 0 0 1 21.28-51.36c3.52 2.4 21.28 22.72 32 32a145.6 145.6 0 0 0 16 12.64s-24.64 40.8-28.64 40z m18.08 16c-1.92 0-9.92-1.28-8-4s25.28-48 28-50.72 8 2.08 6.72 4-24.8 51.52-26.72 51.52z m18.08 16c-2.72-1.28-7.36-2.72-7.36-4.64s25.28-52 25.28-52l6.72 4a378.72 378.72 0 0 1-24.8 53.44z m487.2-66.56a29.28 29.28 0 0 1-7.36 6.72 352 352 0 0 0-28.64-46.72c-3.36 0-10.72 11.36-10.72 11.36s26.72 39.36 24 43.36a83.84 83.84 0 0 1-18.72 12 240.96 240.96 0 0 0-22.72-38.72c-4-1.28-14.72 6.72-13.28 10.08s24.64 39.36 24.64 39.36-13.28 12-16 10.72-19.36-34.72-21.92-34.72-10.72 9.28-10.72 9.28 24.64 32 22.08 34.72l-12 9.28-22.72-33.92s-9.92 4-9.92 6.72 23.36 38.08 22.08 40-39.36 32-124 42.08-137.92 2.08-184.64-13.28-64-29.92-65.28-32a226.72 226.72 0 0 1 23.36-56 286.72 286.72 0 0 0 126.72 33.28c77.28 3.36 104.64 2.08 172.64-32a352.8 352.8 0 0 0 104-72 181.92 181.92 0 0 1 23.36-20s27.04 67.84 25.76 70.4z m22.08-225.92a20.8 20.8 0 0 1-17.28 2.08c-1.28-1.92-1.28-100.64 0-101.28s17.28 2.08 18.08 6.08a726.88 726.88 0 0 1-0.8 93.12zM848 214.88a24.16 24.16 0 0 1 3.36-44.64c15.2-5.76 24.64 6.72 26.72 23.36A20.8 20.8 0 0 1 848 214.88z m41.28 244.64a188.96 188.96 0 0 1-57.92 2.08c-2.72-1.92 0-9.28 0-9.28s44.64 0 44.64-4-8-134.72-4-137.92 4.64 1.28 6.72 5.28a1307.52 1307.52 0 0 1 10.4 143.84z" fill="#E9D7DF" p-id="8084"></path></svg><font style="font-family:Constantia, 'Lucida Bright', 'DejaVu Serif', Georgia, 'serif';font-size:50%;line-height: 0px">AstroQuest</font></a>
+  <a href="P-aboutme.html">About</a>
+  <div class="dropdown">
+    <button class="dropbtn">Routes<font  style="font-weight: normal;font-family:'站酷庆科黄油体';font-size:100%;color:#B31312;text-shadow: #BA2F7B 1px 0 10px;"><sup>New!</sup></font> 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="P-Venus.html">Venus</a>
+      <a href="P-Ceres.html">Ceres</a>
+      <a href="P-Europa.html">Europa<font  style="font-weight: normal;font-family:'站酷庆科黄油体';font-size:100%;color:#B31312;text-shadow: #BA2F7B 1px 0 10px;"><sup>New!</sup></font> </a>
+    </div>
+  </div> 
+  <div class="dropdown">
+    <button class="dropbtn">AstroQuest<sup>&reg;</sup> 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="P-LunaLift.html">LunaLift&trade;</a>
+      <a href="P-SpaceLink.html">SpaceLink&trade;</a>
+	  <a href="P-CosmoSail.html">CosmoSail&trade;</a>
+    </div>
+  </div> 
+	  <a href="P-News.html">News</a>
+	  <a href="P-Gallery.html">Gallery</a>
+	  <a href="P-Contact.html">Contact</a>
+</div>
+
+	
+	
+	<!--div style="postion:sticky;top:0;width:100%;background-color:#1E131D;color:#CCCCD6;padding:10px;line-height:10%"><nav class="crumbs">
+  <ol>
+    <li class="crumb"><a href="P-home.html" style="color:#CCCCD6;">Homepage </a></li>
+	  <li class="crumb"><a href="P-aboutme.html">About</a></li>
+	  <li class="crumb"><a href="P-aboutme.html">Destinations</a></li>
+	  <li class="crumb"><a href="P-aboutme.html">Our Service</a></li>
+	  <li class="crumb"><a href="P-aboutme.html">History</a></li>
+	  <li class="crumb"><a href="P-aboutme.html">Scenery</a></li>
+	  <li class="crumb"><a href="P-aboutme.html">Contact</a></li>
+  </ol>
+</nav></div-->
+	
+<!-- Slideshow container -->
+	<div class="mySlides fade" style="width:100%;height:585.5px;z-index:0;background-image:url('https://i.redd.it/interstellar-departure-v0-t9vjdj28pilb1.png?s=bcc5f3bc36a50f3d77d4c3fcf7ce0eeb388c7c25');background-size:cover;background-position:center bottom;">
+	<div class="text" style="text-align:middle;bottom:150px;font-size:250%;-webkit-text-stroke:0px;color:white;text-shadow:1px 1px hsla(250,60%,2%,1.00);font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', 'serif'">SpaceLink<br><font style="font-size:20px;font-family:'绛夌嚎'">Interstellar commute</font></div>
+</div>
+    
+	<table id="leftT">
+        <tr><th><a href="https://www.businessinsider.com/uber-eats-first-delivery-in-space-japanese-billionaire-astronaut-iss-2021-12#:~:text=Uber%20Eats%20made%20its%20first,than%2030%20minutes%20to%20arrive.">Space Elevators Are Less Sci-Fi Than You Think <img src="https://static.scientificamerican.com/sciam/assets/Image/newsletter/salogo.png" style="height:15px;float:right;background-color:#white"></a><hr style="border-style: solid"></th></tr>
+        <tr><td>
+            <div style="display:inline-block;float:left;margin-right:15px;width:400px" class="contra" ><a href="https://www.scientificamerican.com/article/space-elevators-are-less-sci-fi-than-you-think/"><img class="contra" src="https://static.scientificamerican.com/sciam/cache/file/A581D5D2-35BB-4289-AAE80EC4BD9F82BA_source.jpg?w=590&h=800&9AAEF39F-6020-4C7D-A2CFD33FC6551768" width="400px"></a><br><font style="font-style:normal;font-size: 50%;opacity: 60%;">A space elevator made of carbon nanotubes stretches from Earth to space in this artist&#8217;s illustration. Credit: Victor Habbick Visions/Science Source</font></div>
+            Space elevators are often dismissed as a science fiction dream, but I believe they will exist soon: perhaps in two or three decades. Throughout my career as an aerospace engineer and physics professor, I keep coming back to the concept of a cable stretching from Earth to space, along which people and cargo can easily travel. In recent years I and other researchers have found new ways to tinker with designs and answer questions about how space elevators could work.<br><br>There are many reasons to build a space elevator. The obvious one is the major energy and cost savings; it&#8217;s a much more practical way to get to orbit than rockets. Another reason that is often overlooked is accessibility.
+            <p style="text-align: right;font-style: normal;line-height:1px;margin-right:3px;"><a class="contra" href="https://www.scientificamerican.com/article/space-elevators-are-less-sci-fi-than-you-think/">&#129030; Read More</a></p>
+            
+            </td>
+        </tr>
+<tr><th><hr style="border-width:0px;border-top:1px solid;border-bottom:2px solid;height: 5px"><a href="https://www.joalda.space/post/space-elevators">History</a><hr style="border-style: solid"></th></tr>
+        <tr><td><a href="https://www.joalda.space/post/space-elevators"><img class="contra" src="https://static.wixstatic.com/media/965d2b_52d06c5a83944670bf9b5074d39b98ad~mv2.jpg/v1/fill/w_743,h_493,al_c,lg_1,q_85,enc_auto/965d2b_52d06c5a83944670bf9b5074d39b98ad~mv2.jpg" style="width:400px;float:left;margin-right:15px;margin-bottom: 5px;"></a><big><b>A space elevator</b></big> is a <a class="contra" href="https://www.joalda.space/post/space-elevators"><font style="text-decoration: 1px dotted underline">form of transportation that gets something from the surface of a celestial body to outer space</font></a>. The idea was pioneered in 1895 by Russian rocket scientist Konstantin Tsiolkovsky, also known as the father of rocket science. If you’ve ever taken an aerospace engineering course, he is the guy who came up with the good ol’ rocket equation that we all know and love. The idea was published in “Speculations about Earth and Sky and on Vesta”, which consisted of the multiple thought experiments he wrote about at this time. Tsiolkovsky had been inspired by the Eiffel Tower, and thought of a larger and longer structure that could reach space.<br><br>On Earth, a space elevator would be “grounded” at the equator, and would reach well beyond geostationary orbit (GEO). GEO is around 22,000 miles or 35,000 km above the surface, and an object orbiting here would have the same orbital period as Earth. This is where many commercial satellites reside.<br><br>Tsiolkovsky proposed a space elevator that relied on a compression structure, like a physical tower. The issue with this is that there exists no material that can support the weight of a structure so large. This is what led to the modern implementation of a space elevator that instead relied on tensile strength. How would this work?<br><br>There are four major components of a modern space elevator, which is the tether, anchor station, climber, and counterweight. Let’s start with the tether.<p style="text-align: right;font-style: normal;line-height:1px;margin-right:3px;"><a class="contra" href="https://www.joalda.space/post/space-elevators">&#129030; Read More</a></p></td></tr>
+	</table>
+	
+		<table id="rightT">
+            <tr><th><a href="https://www.washingtonpost.com/travel/2023/01/09/space-tourism-travel/">How to travel to space, Earth’s hottest new destination<svg style="height:20px;float:right;"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 697.01 104.61" fill="currentColor" aria-label="The Washington Post homepage." label="The Washington Post logo" class="wpds-c-dNojCm wpds-c-dNojCm-hLyayG-variant-primary"><path fill="#111" d="M39.2 32v36.6c4.7-2.8 7-6.8 8.7-12.1l1.2.6c-1.1 13.2-10.3 26-24.3 26S0 72.6 0 55.8C0 43 7.7 35.1 18.7 28.2a16.11 16.11 0 0 0-4.4-.6c-7.2 0-11.4 4.9-11.4 9.9H1.5a14.77 14.77 0 0 1-.1-2.1c0-9.3 5.5-19.7 16.9-19.7 7.3 0 12.9 6.7 21.4 6.7 4.3 0 6.7-1.6 8.4-5.3h1.2c-.1 6.5-2 12.8-10.1 14.9zm-19-3.3C15.1 34 10.1 39.6 10.1 50.9c0 6.2 1.9 12.4 6.6 16.4l3.1-1.7V40.3L16.6 42l-1-1.6 15-8.4c-3.8-.8-6.9-2.3-10.4-3.3zm17.1 3.7a17 17 0 0 1-2.3.1 17.52 17.52 0 0 1-4-.4v29.5l-12.8 7a15.57 15.57 0 0 0 9.9 3 22.58 22.58 0 0 0 9.2-2zm44 9.2v34.3c0 9.6-8.51 16.11-18 18l-.6-1c4.7-2.3 7.8-6.41 7.8-11.41V45.7l-4.9-4.5-2.6 2.6v27.1l3 2.8v.4l-8.1 8.61-9.3-8.51v-.4l3.6-3.8V25.8l10.6-11.3.2.1v26.6l8.7-9.2 8.7 7.9 2.7-2.6 1.31 1.3zM97.91 62v4.5l9 7.1 7-7.3 1.3 1.3L101 82.8 88.21 72.6l-2.8 2.8-1.2-1.3 3.1-3.2V45.8l18.9-13.8 10.5 16.3zm.2-22.6-.2.1v20.1l8.7-6.4zM180 82.71l-13.9-12-10.6 12-14.4-12.41V50.7h-2.8a3.89 3.89 0 0 0-4.1 3.5h-1a15.87 15.87 0 0 1-.5-3.8c0-2.6 1.1-9.4 8.4-9.4V25.8c0-5.9-3.9-6.2-3.9-11.3 0-5.7 5.4-11 15.3-14.5l.9.8c-3.3 1.6-6 3.6-6 7.9 0 6.6 6.4 4.9 6.4 15.3v4l11.7-12.3 12.3 12.1 11.6-12.1 11.2 11v37zM165.4 32.8l-7-6.9-4.6 4.7v34.3l8.5 7.3 3.1-3.5zm22.6-1.3-5.6-5.6-4.3 4.3v34.6l9.8 8.6.1-.1zm44.8 51.21-9.4-8.61h-.2l-8.3 8.61-10.1-8.91-2.3 2.3-1.3-1.3 2.9-3V45.5l19-13.6 10.4 8.2 2.8-2.8 1.5 1.3-3.6 3.4v27.1l4.6 4.2 2.9-3 1.5 1.4zm-9.4-37.41-8.3-6.5-.2.2v29.2l6.1 5.4 2.4-2.3zm40.6 4.8h9.4v21.4l-15.9 11.21a11.52 11.52 0 0 0-8.8-4.11c-3 0-5.4 1.4-7.8 4l-1.4-.5 13.8-19.8h-8.5V43.7L261.4 32c2 1.6 3.6 2.6 6.2 2.6a11.35 11.35 0 0 0 7.1-2.2l1 .7zm-1.4 8.8h-4.7l-11.1 15.9.1.2a12.36 12.36 0 0 1 7.6-2.5 10.4 10.4 0 0 1 8 3.8l.1-.09zm6.4-19.6a9.73 9.73 0 0 1-6.9 2.3 8.92 8.92 0 0 1-6.3-2.9l-.2.1v14.6h3.8l9.7-14zm40 2.3v34.3c0 9.6-8.51 16.11-18 18l-.6-1c4.7-2.3 7.8-6.41 7.8-11.41V45.7l-4.9-4.5-2.6 2.6v27.1l3 2.8v.4l-8.1 8.61-9.3-8.51v-.4l3.6-3.8V25.8l10.6-11.3.2.1v26.6l8.7-9.2 8.71 7.9 2.7-2.6 1.3 1.3zm19.6 41.11-8.3-7.61-2.8 2.8-1.3-1.3 3.3-3.4V44.7l-3.6-3.3-2.7 2.6-1.3-1.3L322 32l7.6 6.9 2.7-2.8 1.4 1.4-3.4 3.4v28.6l4.2 3.9 3-3.1 1.3 1.4zm-2.9-51.61-8.2-7.5 7.5-8 8.2 7.5zm46.1 51.61-8.7-7.91V45.6l-4.7-4.4-3.4 3.5v26.1l3.1 2.9v.4l-8.2 8.61-9.3-8.51v-.3l3.6-3.8V44.9l-4.1-3.7-3 3-1.4-1.3L345.9 32l9.1 8.1v2l9.5-10.1 8.7 7.8 2.9-2.9 1.3 1.4-3.5 3.5v28l3.9 3.7 3.3-3.4 1.2 1.3zm43-41V75.6c0 5.2 2.9 5 2.9 8.9 0 4.51-6.5 8.71-16.5 16.21-3.3-3.6-5.6-5.1-8.7-5.1a19.85 19.85 0 0 0-10.7 3.6l-1-.8 13.7-16.11-9-7.09-2.9 2.89-1.3-1.3 3.4-3.5V45.5l19-13.6 10.2 8 3-2.9 1.3 1.3zm-7.7 41.71c-2.5-1.61-3.1-3.31-3.1-7.61V74.3L387.9 93l.1.1c3.2-1.9 5.6-3.1 10.3-3.1 4 0 6.9 1.7 9.5 4 1.9-1.6 3.3-3.2 3.3-5.7 0-1.99-1.5-3.3-4-4.89zM404 45.3l-8.3-6.5-.2.2v30.7l5.9 4.6 2.6-3zm31.5 37.41-8.8-6.91-2.7 2.7-1.3-1.29 3.1-3.21V39.4H420l-.2-.2 3.5-5.2h2.5v-6.7L436.4 16l.2.2V34h8l.2.2-3.5 5.2h-4.7v30.3l4.8 3.7 3.3-3.4 1.3 1.4zm43.71-40.11v27.7l-16.9 12.5L450 73.5l-2.8 2.8-1.3-1.3 3.2-3.3v-27L466.81 32l11.4 8.9 2.9-2.9 1.3 1.4zm-10.8 3L460 39l-.09.1v29.8l8.5 6.4zm50.4 37-8.7-7.9V45.5l-4.7-4.4-3.41 3.5v26.1l3.1 2.9v.4l-8.2 8.61-9.3-8.51v-.3l3.6-3.8V44.8l-4.1-3.7-3 3-1.4-1.3 10.2-10.9L502 40v2l9.5-10.1 8.7 7.8 2.9-2.9 1.3 1.4-3.5 3.5v28l3.9 3.7 3.3-3.4 1.2 1.3zm61.39.11a12.91 12.91 0 0 0-6.3-4.61v20.81l-.2.1-5.5-5.1-11.6 10.7-.2-.1V77.6a18.83 18.83 0 0 0-10.2 6.61l-.8-.5c.7-7.71 4.5-13.41 11-15.61V48.6h-2.1a5.25 5.25 0 0 0-5.3 4.2h-1.2a12.28 12.28 0 0 1-.7-4.6c0-4.9 3.3-8.6 8.7-8.6h.6V28.8l-3.6-3.2-2.8 2.8-1.4-1.3 11.1-11.4 9.4 8.6v9.8L572 31V19.5h1.9V29l12.5-13.3L597.7 26v43.5zM572 32.9l-2.9 3v56.31l2.9 2.7zm13.1-2.3-5.9-5.4-5.3 5.6v36.3c4.7.6 8.2 2.2 11.1 5.3l.1-.1zm48.7 12v27.7l-16.9 12.5-12.3-9.3-2.8 2.8-1.3-1.3 3.2-3.3v-27L621.4 32l11.4 8.9 2.9-2.9 1.3 1.4zm-10.8 3-8.4-6.6-.1.1v29.8l8.5 6.4zm35.6 4.5h9.4v21.4l-15.9 11.21a11.52 11.52 0 0 0-8.8-4.11c-3 0-5.4 1.4-7.8 4l-1.4-.5 13.8-19.8h-8.5V43.7L656 32c2 1.6 3.6 2.6 6.2 2.6a11.38 11.38 0 0 0 7.11-2.2l1 .7zm-1.4 8.8h-4.7l-11.1 15.9.1.2a12.36 12.36 0 0 1 7.6-2.5 10.4 10.4 0 0 1 8 3.8l.1-.09zm6.41-19.6a9.78 9.78 0 0 1-6.91 2.3 8.92 8.92 0 0 1-6.3-2.9l-.2.1v14.6h3.8l9.7-14zm22.9 43.41-8.8-6.91-2.71 2.7-1.3-1.29 3.1-3.21V39.4H671l-.2-.2 3.5-5.2h2.5v-6.7L687.41 16l.2.2V34h8l.2.2-3.5 5.2h-4.7v30.3l4.8 3.7 3.3-3.4 1.3 1.4z"></path></svg></a><hr class="header"></th></tr>
+            <tr><td><img src="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/TIKKTK3F4BCLROWFYA4V2FZKBM.gif&w=1440&impolicy=high_res" style="width:20%;float:left;margin-right:15px;">The space just above our planet is booming. Off-world trips are rapidly increasing: 42 of the 51 commercial astronauts recognized by the Federal Aviation Administration left Earth within the past two years.<br><br>The FAA predicts their ranks will balloon in the next decade — which may also bring new destinations, such as a rotating space hotel whose construction, planners claim, will begin in 2026 — and some experts have expressed optimism that relatively affordable space travel could be possible by the middle of this century.<br><br>For now, though, costs remain enormous. A <big><b><a class="contra" href="https://www.washingtonpost.com/technology/2021/10/14/richard-branson-virgin-galactic-safety/?itid=lk_inline_manual_4">$450,000</a></b></big> ticket reserves a spot on Virgin Galactic’s space plane, which flies 50 miles above Earth — six times a passenger plane’s cruising altitude. Expect to pay even more to go higher. Blue Origin’s 11-minute journey by rocket, which reportedly cost more than $1 million, shoots above the 62-miles-high Kármán line, the generally agreed-upon boundary between Earth and space. Others spend days in space. In September 2021, four civilian Americans orbited for three days aboard a SpaceX Dragon capsule. No word on how much it cost them.<br><br>
+            For <big><b><a class="contra" href="https://www.washingtonpost.com/technology/2021/01/26/private-space-flight-axiom/?itid=lk_inline_manual_5">$55 million</a></b></big>, Axiom Space will send astronauts via a SpaceX rocket to the International Space Station, a laboratory that circles Earth once every 90 minutes. For two weeks last April, the ISS’s first Axiom crew members worked in the lab while forgoing proper showers.<p style="text-align: right;font-style: normal;line-height:1px;margin-right:3px;"><a class="contra" href="https://www.washingtonpost.com/travel/2023/01/09/space-tourism-travel/">&#129030; Read More</a></p>
+    </td>
+    </tr>      
+
+			<tr><th><hr style="border-width:0px;border-top:1px solid;border-bottom:2px solid;height: 5px"><a href="https://www.planet.com/pulse/launching-planet-pantry-a-delivery-service-of-intergalactic-proportions/">When going to space becomes your normal commute<img src="CNET New 2022.svg" style="height:30px;float:right;"></a><hr class="header"></th></tr>
+            <tr><td>Imagine if the view from your office window was the entire planet Earth. For entrepreneurs like Jeff Bezos, CEO of Amazon and founder of the spaceflight company Blue Origin, this is the future we should be working toward to reduce human pressures on our world, while opening up new habitats and employment opportunities for an off-Earth human community.<br><br>"The long-term vision is millions of people living and working in space," Bezos said in March at the Satellite 2017 conference in Washington DC. "We need a spacefaring civilization."<br><br>Such a large population of orbital commuters is not likely to be achieved for many decades, perhaps even centuries. But the groundwork is gradually being laid for this objective, and it's being led primarily by NewSpace, a catchall term for the private spaceflight community.<br>		<a class="contra" href="https://www.cnet.com/science/when-going-to-space-becomes-your-normal-commute/"><p style="text-align: center"><img class="contra" src="https://www.cnet.com/a/img/resize/3e4fd70cf4992f935f855d1c1e3fdba937c7e5be/hub/2017/10/11/4ad5b05d-f007-4b26-9586-0968d5fbea0e/12a.png?auto=webp&width=1200" width="100%"><br>
+            <font class="contra" style="font-style:normal;font-size: 50%;opacity: 80%;">For most of spaceflight history, astronauts have been government employees. That has changed. Source: NASA</font></p></a>"It's a very inspirational point in the [private space] industry where you are seeing SpaceX, Blue Origin, and other commercial space companies drawing some of the top engineering talent in the world, because of the allure of being part of something much bigger than yourself," Barret Schlegelmilch, president of the MIT Sloan Astropreneurship and Space Industry Club and co-founder of the startup Lunar Station, told me over the phone.<p style="text-align: right;font-style: normal;line-height:1px;margin-right:3px;"><a class="contra" href="https://www.cnet.com/science/when-going-to-space-becomes-your-normal-commute/">&#129030; Read More</a></p>
+                </td></tr></table>
+
+	<hr>
+	<center>
+	<p style="color:hsla(225,34%,28%,1.00);text-shadow:1px 1px #461629">
+        <a class="contra" href="https://www.reddit.com/r/StableDiffusion/comments/166ofn8/interstellar_departure/">Banner image</a> from <a class="contra" href="https://www.reddit.com/user/tvetus/">tvetus</a>, <a class="contra" href="https://www.reddit.com/r/StableDiffusion/">r/StableDiffution</a><br>Designed by &copy;Jenny 211323 2023<br>Part of project CP35214 - instructed by Prof. Jude</p></center>
+</body>
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+	
+document.addEventListener('scroll', () => {
+  document.documentElement.dataset.scroll = window.scrollY;
+});
+</script>
+
+</html>

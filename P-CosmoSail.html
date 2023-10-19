@@ -1,0 +1,474 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AstroQuest - CosmoSail</title>
+<link rel="icon" type="image/x-icon" href="astronaut-helmet.ico">
+<style>
+th {
+    font-size: 13pt;
+    text-align: left;
+    color: #E9D7DF;
+    text-shadow: 0 0 0 transparent;
+}
+td {
+    color: #BA2F7B;
+    font-style: italic;
+}
+table {
+    display: inline-table;
+    font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif";
+    text-shadow: 0 1px black;
+    padding: 6px;
+    height: 600px;
+    background-color: black;
+    border: 3px solid 411C35;
+}
+    
+    #dest td{
+        font-family:Monaco, 'Courier New', 'monospace';word-wrap: normal;padding:10px;color:hsla(240,11%,82%,1.00)
+    }
+    #dest tr.contra td:hover{
+        word-wrap: normal;
+        padding:10px;
+        color:black;
+        background-color:white;
+    }
+    
+    #dest th{
+        text-align: center;
+        color:hsla(328,47%,55%,1.00);
+    }
+    
+    #dest th.contra:hover{
+        color:white;
+        background-color:hsla(328,47%,55%,1.00);
+    }
+    #ceres:hover{
+        opacity:0.8;
+    }
+    
+
+@media screen and (min-width: 800px) {
+table {
+    width: 100%;
+}
+}
+hr.header {
+    color:hsla(333,29%,88%,1.00);
+    border-style:solid;
+}
+
+/* if the browser window is at least 1000px-s wide: */
+@media screen and (min-width: 1500px) {
+table {
+    width: 48.8%;
+}
+}
+#leftT {
+    margin-right: 2%;
+}
+#right {
+    margin-left: 2%;
+}
+td, th {
+    padding: 6px;
+}
+table a:link {
+    color: inherit;
+    text-decoration: none;
+}
+table a:hover {
+    color: inherit;
+    text-shadow: 1px 1px grey;
+    text-decoration: none;
+}
+table a:visited {
+    text-decoration: none;
+}
+a.contra:link {
+    color: inherit;
+    text-decoration: none;
+}
+a.contra:hover {
+    background-color: #BA2F7B;
+    color: hsla(332,27%,88%,1.00);
+    text-shadow: none;
+    text-decoration: none;
+}
+img.contra:hover {
+    opacity: 0.8;
+}
+p, h1 {
+    color: #C35691;
+    line-height: 150%;
+    word-wrap: break-word;
+}
+body {
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: #1E131D;
+}
+hr {
+    border-style: dashed;
+    color: #1E131D;
+}
+.navbar {
+    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+    overflow: hidden;
+    background-color: #461629;
+    position: static;
+}
+a:link {
+    text-decoration: none;
+    color: inherit;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: #E9D7DF;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    z-index: 10;
+}
+.dropdown {
+    float: left;
+    overflow: visible;
+}
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: #E9D7DF;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+    margin: 0;
+}
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #1C0D1A;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #E9D7D3;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 999;
+}
+.dropdown-content a {
+    float: none;
+    color: #1C0D1A;
+    padding: 12px 16px;
+    text-decoration: none;
+    min-width: 100px;
+    display: block;
+    text-align: left;
+}
+.dropdown-content a:hover {
+    background-color: #CAA2B4;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+* {
+    box-sizing: border-box
+}
+.mySlides {
+    display: none;
+}
+img {
+    vertical-align: middle;
+}
+/* Slideshow container */
+.slideshow-container {
+    max-height: 80%;
+    position: relative;
+    margin: auto;
+}
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+/* Caption text */
+.text {
+    color: black;
+    text-shadow: #E9D7DF 2px 0 10px;
+    -webkit-text-stroke: 1px white;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: left;
+    margin-left: 5%;
+    padding-bottom: 40px;
+    font-size: 50px;
+}
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #E9D7DF;
+    border-radius: 25%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+    background-color: #461629;
+}
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+html:not([data-scroll='0']) .dropdown-content {
+    position: relative;
+    z-index: 999;
+}
+html:not([data-scroll='0']) .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+@keyframes fade {
+from {
+opacity: .4
+}
+to {
+opacity: 1
+}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width : 1467px ) {
+.prev, .next, .text {
+    font-size: 11px
+}
+</style>
+</head>
+
+<body>
+<div class="navbar" > <a href="P-home.html" style="padding:2px 6px 2px 6px;">
+  <svg t="1696737759827" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8083" width="45">
+    <path d="M374.4 608c3.36-1.28 4-1.92 4-8s-6.72-4.64-18.72-17.92a122.08 122.08 0 0 1-30.72-77.28c-3.36-41.92 34.08-86.72 40.64-98.72s0-26.88-8.64-26.72c-101.28 3.36-112 88-114.08 108.64s-1.28 78.72 36.64 104.64a124.64 124.64 0 0 0 90.88 15.36z m-93.92-162.56c10.72-21.28 26.08-45.28 58.08-49.92 7.36-1.12 12 4.64 8.64 7.36s-43.36 48-41.28 96S320 568.16 327.68 576s11.36 11.36 9.28 13.28a75.84 75.84 0 0 1-60.64-35.36c-20.32-31.68-6.56-87.04 4.16-108.48z m394.72-53.92c2.08 0 3.36-2.72 3.36-6.72a69.12 69.12 0 0 0-29.92-21.92 7.52 7.52 0 0 0-2.72 10.72 205.28 205.28 0 0 0 29.12 17.92z m-21.92 50.08c2.72 1.28 56 28 58.08 28s2.08-4 2.08-8a293.6 293.6 0 0 0-59.36-33.28c-3.68 0.48-3.68 11.84-0.96 13.12z m0 45.28c3.36 3.36 61.28 36.64 64 37.28s1.28-5.28 1.28-9.28a372.64 372.64 0 0 0-61.28-40c-2.24 0-7.52 8.64-4.16 12z m1.28 37.28s-5.28 9.28-4.64 12.64a706.88 706.88 0 0 0 62.08 38.08s4.64-5.28 4-8.64a368 368 0 0 0-61.6-42.08z m50.72 106.72c2.72 1.28 3.36-4.64 4.64-7.36s-72-51.36-72-51.36-7.36 8.64-7.36 11.36 71.84 45.92 74.56 47.36z m-25.28 39.36a35.2 35.2 0 0 0 7.36-5.92 476.64 476.64 0 0 0-64-52c-4 0-8.64 4.64-8 8s64.32 49.92 64.32 49.92z m-82.24-25.44a16 16 0 0 0-7.36 9.28 512 512 0 0 0 54.72 41.28 35.2 35.2 0 0 0 7.36-5.92 291.36 291.36 0 0 0-54.72-44.64z m-128-248.64c2.08 1.28-11.36 18.72-11.36 18.72s5.28 8 7.36 8a35.68 35.68 0 0 0 12-10.72c1.28-2.72 9.28 11.36 9.28 11.36l10.08-4a164.16 164.16 0 0 1-7.36-23.36c0-4 22.72 0 22.72 0a16 16 0 0 0 2.72-6.72c0-2.72-6.72-6.72-6.72-6.72s3.36-9.28 1.28-12-20.64 7.36-20.64 7.36-1.28-16-1.28-19.36-4.64-3.36-9.28-1.92-5.92 24-5.92 24a51.68 51.68 0 0 0-16-1.28 14.4 14.4 0 0 0-3.36 9.28c-0.16 2.72 14.4 6.08 16.48 7.36z m87.2 208s3.2 4.8 4.32 4.8a21.12 21.12 0 0 0 7.04-6.24c0-1.6 5.44 6.72 5.44 6.72l5.92-2.4a97.12 97.12 0 0 1-3.68-13.44c0-2.4 13.44 0 13.44 0a9.76 9.76 0 0 0 1.6-4c0-1.6-4-4-4-4s1.92-5.44 0-7.04-12.16 4.32-12.16 4.32v-11.36c0-1.44-2.72-1.92-5.44-1.12s-3.52 14.24-3.52 14.24a30.56 30.56 0 0 0-9.44 0 8.48 8.48 0 0 0-1.92 5.44c0 1.6 8.64 3.52 9.92 4.32s-7.52 10.24-7.52 10.24z m-186.08 36.8s-1.92 7.36-2.72 9.28-8-1.28-10.72-1.92-2.72 4-2.72 8 13.28 6.72 13.28 6.72l-10.72 10.72a113.76 113.76 0 0 0 11.36 7.36c2.08 0 7.36-8.64 7.36-8.64l9.28 12.64h6.72l-1.92-14.72h10.72a30.72 30.72 0 0 0 0-12c-1.28-3.36-16-3.36-16-3.36s-2.72-16-5.92-17.28-5.28 2.24-8 3.68z m81.12-98.72s4 14.72 8 14.72h8l-1.92-16s10.08-1.92 16-2.72 0-5.92 0-8.64-13.28-1.28-17.92-1.28-3.36-10.72-3.36-12.64-11.36 3.36-13.92 4.64v9.28h-5.92v6.72c0 2.08 11.04 6.56 11.04 6.56z m124-72s4 14.72 8 14.72h8l-1.92-16s10.08-1.92 16-2.72 0-5.92 0-8.64-13.28-1.28-17.92-1.28-3.36-10.72-3.36-12.64-11.36 3.36-13.92 4.64v9.28h-5.92v6.72c0 2.08 11.04 5.92 11.04 5.92z m-94.08 158.4c-1.28-3.36-9.28-2.72-12-1.28a32 32 0 0 0-1.92 16c0 4-3.36 2.08-8 5.28s0 14.08 0 14.08l12.64 5.28 6.08-8.64a59.68 59.68 0 0 1 6.08 8c1.28 2.72 12-4.64 12-4.64l5.6-6.72-9.28-19.36s-9.44-4.8-10.72-8.16z m402.56-401.76s28-60.64-11.36-73.28-62.72 13.28-61.28 41.28 38.08 40 38.08 40 9.28 200 9.28 202.72a151.04 151.04 0 0 1-34.72 1.28s0-17.28-1.28-32S800 387.52 800 387.52s-18.72-104.64-50.72-138.08-86.88-109.28-217.6-117.28-192 13.28-281.28 78.72S147.04 400 147.04 400c-5.92 0-23.36 1.28-28 9.28s2.08 108.64 5.28 118.08 44 19.36 44 19.36a456 456 0 0 0 16 46.72c10.72 26.72 28.64 64 28.64 64s-36 75.36-32 85.28 51.36 64 120 104 194.72 68 304 27.36 203.36-128 204-133.92-40-109.28-40-109.28a85.12 85.12 0 0 0 16-35.36 222.4 222.4 0 0 0 6.72-55.36s26.72-5.28 32-13.92a156.96 156.96 0 0 0 3.36-48s58.08 4.64 64 3.36 14.72-4 16-13.28-22.56-241.44-22.56-241.44zM519.04 158.24a213.44 213.44 0 0 1 2.08 36c-1.92 0-20 2.08-20 2.08L496 158.24c2.4-0.8 23.04 0 23.04 0z m-91.36 3.36a171.52 171.52 0 0 1 32-1.28 536.64 536.64 0 0 1 2.08 56 92.96 92.96 0 0 1-27.36 2.08 279.36 279.36 0 0 1-6.72-56.96z m-60.64 17.28s5.28 24 2.08 25.28a112 112 0 0 1-19.36 1.28l-4-18.72c2.72-1.28 21.28-7.84 21.28-7.84zM171.04 522.24a23.68 23.68 0 0 1-17.92-1.92c-1.92-2.72-11.36-90.72-6.72-94.72 0 0 24.64-2.72 25.28 2.08a743.68 743.68 0 0 1-0.64 94.56z m24-119.36s-22.72 2.08-24.64 0A284.8 284.8 0 0 1 229.76 272a259.52 259.52 0 0 1 100-78.72s1.28 26.08 4.64 27.36a161.12 161.12 0 0 0 50.72-2.72c2.72-4-4-46.72-1.92-48a101.6 101.6 0 0 1 29.28-5.28 518.08 518.08 0 0 0 4.64 64 109.76 109.76 0 0 0 36 3.36 51.52 51.52 0 0 0 28-8c0-1.92-8.64-64-6.72-64a55.68 55.68 0 0 1 6.72-1.28s3.36 56.64 7.36 56 50.72-1.92 50.08-7.36-7.36-52-3.36-51.36a262.08 262.08 0 0 1 139.36 58.08C736 266.24 768 377.44 766.4 378.88a80 80 0 0 1-11.36 4s-87.36-89.92-170.72-103.36-151.36-21.92-238.72 18.08a560 560 0 0 0-150.56 105.28z m3.36 145.28v-115.36a632.64 632.64 0 0 1 142.08-103.36c66.72-32 153.28-33.28 213.28-23.36s113.28 49.28 150.72 75.36 40.64 35.36 40.64 35.36a998.08 998.08 0 0 0 4.64 104 68.64 68.64 0 0 0 12 16 258.08 258.08 0 0 1-25.76 72 257.12 257.12 0 0 1-61.28 80A414.08 414.08 0 0 1 622.4 720s-45.28-44-48-44.64-13.28 7.36-11.36 11.36 50.08 38.72 46.08 41.28a397.12 397.12 0 0 1-137.28 29.28 296.8 296.8 0 0 1-189.92-73.28 385.28 385.28 0 0 1-83.52-135.84zM251.04 768a174.88 174.88 0 0 1-40.64-33.28 183.04 183.04 0 0 1 21.28-51.36c3.52 2.4 21.28 22.72 32 32a145.6 145.6 0 0 0 16 12.64s-24.64 40.8-28.64 40z m18.08 16c-1.92 0-9.92-1.28-8-4s25.28-48 28-50.72 8 2.08 6.72 4-24.8 51.52-26.72 51.52z m18.08 16c-2.72-1.28-7.36-2.72-7.36-4.64s25.28-52 25.28-52l6.72 4a378.72 378.72 0 0 1-24.8 53.44z m487.2-66.56a29.28 29.28 0 0 1-7.36 6.72 352 352 0 0 0-28.64-46.72c-3.36 0-10.72 11.36-10.72 11.36s26.72 39.36 24 43.36a83.84 83.84 0 0 1-18.72 12 240.96 240.96 0 0 0-22.72-38.72c-4-1.28-14.72 6.72-13.28 10.08s24.64 39.36 24.64 39.36-13.28 12-16 10.72-19.36-34.72-21.92-34.72-10.72 9.28-10.72 9.28 24.64 32 22.08 34.72l-12 9.28-22.72-33.92s-9.92 4-9.92 6.72 23.36 38.08 22.08 40-39.36 32-124 42.08-137.92 2.08-184.64-13.28-64-29.92-65.28-32a226.72 226.72 0 0 1 23.36-56 286.72 286.72 0 0 0 126.72 33.28c77.28 3.36 104.64 2.08 172.64-32a352.8 352.8 0 0 0 104-72 181.92 181.92 0 0 1 23.36-20s27.04 67.84 25.76 70.4z m22.08-225.92a20.8 20.8 0 0 1-17.28 2.08c-1.28-1.92-1.28-100.64 0-101.28s17.28 2.08 18.08 6.08a726.88 726.88 0 0 1-0.8 93.12zM848 214.88a24.16 24.16 0 0 1 3.36-44.64c15.2-5.76 24.64 6.72 26.72 23.36A20.8 20.8 0 0 1 848 214.88z m41.28 244.64a188.96 188.96 0 0 1-57.92 2.08c-2.72-1.92 0-9.28 0-9.28s44.64 0 44.64-4-8-134.72-4-137.92 4.64 1.28 6.72 5.28a1307.52 1307.52 0 0 1 10.4 143.84z" fill="#E9D7DF" p-id="8084"></path>
+  </svg>
+  <font style="font-family:Constantia, 'Lucida Bright', 'DejaVu Serif', Georgia, 'serif';font-size:50%;line-height: 0px">AstroQuest</font></a> <a href="P-aboutme.html">About</a>
+  <div class="dropdown">
+    <button class="dropbtn">Routes<font  style="font-weight: normal;font-family:'站酷庆科黄油体';font-size:100%;color:#B31312;text-shadow: #BA2F7B 1px 0 10px;"><sup>New!</sup></font> <i class="fa fa-caret-down"></i> </button>
+    <div class="dropdown-content"> <a href="P-Venus.html">Venus</a> <a href="P-Ceres.html">Ceres</a> <a href="P-Europa.html">Europa<font  style="font-weight: normal;font-family:'站酷庆科黄油体';font-size:100%;color:#B31312;text-shadow: #BA2F7B 1px 0 10px;"><sup>New!</sup></font> </a> </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">AstroQuest<sup>&reg;</sup> <i class="fa fa-caret-down"></i> </button>
+    <div class="dropdown-content"> <a href="P-LunaLift.html">LunaLift&trade;</a> <a href="P-SpaceLink.html">SpaceLink&trade;</a> <a href="P-CosmoSail.html">CosmoSail&trade;</a> </div>
+  </div>
+  <a href="P-News.html">News</a> <a href="P-Gallery.html">Gallery</a> <a href="P-Contact.html">Contact</a> </div>
+
+<!--div style="postion:sticky;top:0;width:100%;background-color:#1E131D;color:#CCCCD6;padding:10px;line-height:10%"><nav class="crumbs">
+  <ol>
+    <li class="crumb"><a href="P-home.html" style="color:#CCCCD6;">Homepage </a></li>
+	  <li class="crumb"><a href="P-aboutme.html">About</a></li>
+	  <li class="crumb"><a href="P-aboutme.html">Destinations</a></li>
+	  <li class="crumb"><a href="P-aboutme.html">Our Service</a></li>
+	  <li class="crumb"><a href="P-aboutme.html">History</a></li>
+	  <li class="crumb"><a href="P-aboutme.html">Scenery</a></li>
+	  <li class="crumb"><a href="P-aboutme.html">Contact</a></li>
+  </ol>
+</nav></div--> 
+
+<!-- Slideshow container -->
+<div style="width:100%;height:585.5px;z-index:0;background-image:url('https://www.freethink.com/wp-content/uploads/2021/04/space-tourism_banner1.jpg?resize=1800,675');background-size:cover;background-position:center bottom;">
+  <div class="text" style="text-align:middle;top:450px;font-size:250%;-webkit-text-stroke:0px;color:white;text-shadow:1px 1px hsla(250,60%,2%,1.00);font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', 'serif'">CosmoSail<br>
+    <font style="font-size:20px;font-family:'等线'">Space Sightseeing</font></div>
+</div>
+    
+<table id="dest" style="background-color:black;border:3px solid hsla(258,9%,21%,1.00);color:hsla(240,9%,79%,1.00);cellspacing:20px;width:100%;">
+<caption>
+<h1 style="font-family:Constantia, 'Lucida Bright', 'DejaVu Serif', Georgia, 'serif';#E9D7DF;-webkit-text-stroke:0.2px #E9D7DF;">Choose Your Destination</h1>
+</caption>
+<tr>
+  <td width=25%><image src="mercury.jpg" width=100%></td>
+    <td width=25%><a href="P-Venus.html"><image class="contra" src="480x320_venus.png" width=100%></image></a></td>
+  <td id="ceres" width=25% style="background-image:url('https://cdn.sci.news/images/enlarge/image_1710_1e-Ceres.jpg');background-size:cover;background-position: center;" onclick="document.location.href='P-Ceres.html'"></td>
+  <td id="ceres" width=25% style="background-image:url('https://spaceplace.nasa.gov/review/europa/europa-full.en.jpg');background-size:contain;background-position: center;background-repeat: no-repeat;" onclick="document.location.href='P-Europa.html'"></td>
+</tr>
+    <tr style="background-color:#1E131D;">
+  <th>Mercury</th>
+  <th class="contra"><a href="P-Venus.html">Venus</a></th>
+<th class="contra"><a href="P-Ceres.html">Ceres</a></th>
+        <th class="contra"><a href="P-Europa.html">Europa</a></th>
+</tr>
+<tr class="contra" style="vertical-align: top">
+  <td>Mercury—the smallest planet in our solar system and closest to the Sun—is only slightly larger than Earth's Moon. Mercury is the fastest planet, zipping around the Sun every 88 Earth days.</td>
+    <td><a href="P-Venus.html">Venus spins slowly in the opposite direction from most planets. A thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system.</a></td>
+    <td><a href="P-Ceres.html">Dwarf planet Ceres is the largest object in the asteroid belt between Mars and Jupiter, and it's the only dwarf planet located in the inner solar system. </a></td>
+    <td><a href="P-Europa.html">Europa is one of Jupiter’s moons. Europa is especially notable because it has twice as much water as Earth, though it is so cold on Europa that water on the surface of this moon is frozen. </a></td>
+<tr>
+  <td colspan="4"><p align="right" style="-webkit-text-stroke:1px;"><em>————More routes under calculation...&nbsp</em></p></td>
+</tr>
+    </table>
+<table id="leftT">
+  <tr>
+    <th><a href="https://www.freethink.com/space/space-tourism">NASA’s plans for space tourism are becoming a reality<svg xmlns="http://www.w3.org/2000/svg" style="height:15px;float:right;fill:white;" viewBox="0 0 651.553 124.016">
+  <g id="Group_12834" data-name="Group 12834" transform="translate(-493.292 -451.073)">
+    <path id="Path_12088" data-name="Path 12088" d="M1353.56,493.817l40.331-27.063-2.379-3.545-37.724,25.314a164.238,164.238,0,0,0,4.653-37.449h-4.27a161.114,161.114,0,0,1-4.826,37.7c-6.873-8.127-14.077-15.839-25.075-22.969l-2.323,3.582c11.11,7.2,18.275,15.138,25.3,23.526l-31.231,20.958,2.379,3.545,28.359-19.031a217.634,217.634,0,0,1-9.752,26.5h-4.177v9.2a2.135,2.135,0,0,0,4.011,1.018,206.523,206.523,0,0,0,14.514-37.253c7.112,8.547,14.694,17.327,26.409,25.744l2.491-3.467C1368.385,511.592,1360.821,502.565,1353.56,493.817Z" transform="translate(-249.045)"/>
+    <g id="Group_12834-2" data-name="Group 12834" transform="translate(493.292 464.963)">
+      <path id="Path_12089" data-name="Path 12089" d="M795.812,515.557c-10.333,0-18.606,3.53-24.586,10.495-6.039,7.035-9.1,16.909-9.1,29.352,0,12.336,3.081,22.078,9.158,28.957,5.7,6.457,15.775,10.248,25.291,10.248,8.433,0,14.128-1.227,19.037-3.645a32.439,32.439,0,0,0,11.05-8.623l-9.237-10.893c-5.141,5.894-12.03,8.789-20.64,8.789a19.092,19.092,0,0,1-12.161-4.9c-3.268-3.321-4.927-8.393-4.927-13.958v-1.412h49.219s.3-3.811.3-6.65c0-11.83-3.035-20.725-9.021-27.556C814.262,518.989,806.057,515.557,795.812,515.557Zm16.115,31.96H779.7v-.782c0-5.432,3.143-16.888,16.255-16.888s15.976,11.467,15.976,16.888Z" transform="translate(-574.67 -484.483)"/>
+      <path id="Path_12090" data-name="Path 12090" d="M690.584,515.557c-10.332,0-18.606,3.53-24.586,10.495-6.039,7.035-9.1,16.909-9.1,29.352,0,12.336,3.081,22.078,9.158,28.957,5.7,6.457,15.775,10.248,25.291,10.248,8.433,0,14.128-1.227,19.037-3.645a32.44,32.44,0,0,0,11.05-8.623L712.2,571.448c-5.141,5.894-12.03,8.789-20.64,8.789a19.092,19.092,0,0,1-12.161-4.9c-3.268-3.321-4.927-8.393-4.927-13.958v-1.412h49.219s.3-3.811.3-6.65c0-11.83-3.035-20.725-9.021-27.556C709.033,518.989,700.829,515.557,690.584,515.557Zm16.114,31.96H674.467v-.782c0-5.432,3.143-16.888,16.255-16.888S706.7,541.313,706.7,546.734Z" transform="translate(-542.817 -484.483)"/>
+      <path id="Path_12091" data-name="Path 12091" d="M894.435,472.665h-17.7v31.723H858.656v14.436h18.075v39.845c0,6.469,1.754,11.675,5.212,15.471,3.419,3.756,8.608,5.66,15.421,5.66h15.9V565.364H900.729a5.9,5.9,0,0,1-4.488-2.013,6.688,6.688,0,0,1-1.805-4.682V518.824h18.831V504.388H894.435Z" transform="translate(-603.891 -471.499)"/>
+      <path id="Path_12092" data-name="Path 12092" d="M611.008,529.6h-3.434v-11.44h-17.7v75.413h17.7V546.933a11.647,11.647,0,0,1,4.356-9.553,15.336,15.336,0,0,1,9.931-3.226h13.407v-16H629.7C617.467,518.159,611.008,529.6,611.008,529.6Z" transform="translate(-522.527 -485.271)"/>
+      <path id="Path_12093" data-name="Path 12093" d="M493.292,579.8H511V534.476h41.556V518.823H511V488.318h41.556V472.665H493.292Z" transform="translate(-493.292 -471.499)"/>
+      <path id="Path_12094" data-name="Path 12094" d="M1150.837,515.557c-12.235,0-18.7,11.443-18.7,11.443h-3.435v-9.618h-17.711V592.82h17.711V542.779a11.652,11.652,0,0,1,4.357-9.556,15.456,15.456,0,0,1,9.934-3.378c4.491,0,7.96,1.5,10.312,4.454,2.268,2.851,3.417,6.984,3.417,12.282V592.82h17.712v-49.28c0-8.918-2.053-15.907-6.1-20.776C1164.3,517.915,1157.529,515.557,1150.837,515.557Z" transform="translate(-680.276 -484.483)"/>
+      <path id="Path_12095" data-name="Path 12095" d="M987.847,502.573c-12.235,0-18.7,11.443-18.7,11.443h-3.435V472.664h-17.71V579.836h17.71V529.8a11.656,11.656,0,0,1,4.357-9.556,15.461,15.461,0,0,1,9.935-3.378c4.49,0,7.959,1.5,10.313,4.454,2.268,2.851,3.417,6.984,3.417,12.282v46.237h17.711V530.555c0-8.918-2.053-15.907-6.1-20.776C1001.314,504.93,994.54,502.573,987.847,502.573Z" transform="translate(-630.938 -471.499)"/>
+      <path id="Path_12096" data-name="Path 12096" d="M1275.945,504.4H1257.6l-16.357,30.135H1235.6V472.664h-17.705V579.836H1235.6V546.982h6.215l18.045,32.854h18.492l-23.045-39.8Z" transform="translate(-712.634 -471.499)"/>
+      <path id="Path_12097" data-name="Path 12097" d="M1048.007,532.607h13.434v61h17.713V518.166h-31.147Z" transform="translate(-661.209 -485.273)"/>
+      <path id="Path_12098" data-name="Path 12098" d="M1075.452,470.993a10.214,10.214,0,1,0,10.215,10.215A10.214,10.214,0,0,0,1075.452,470.993Z" transform="translate(-666.424 -470.993)"/>
+    </g>
+  </g>
+</svg></a>
+      <hr class="header"></th>
+  </tr>
+  <tr>
+    <td><div style="float:left;margin-right:15px;width:400px;height:280px;align-content: center;">
+<div class="slideshow-container" style="float:left;margin-right:15px;width:400px;height:230px;align-content: center;">
+
+  <!-- Full-width images with number and caption text -->
+  <a href="https://forums.warframe.com/topic/81010-why-are-europa-and-ceres-out-past-pluto/"><div class="mySlides fade">
+    <!--div class="numbertext">1 / 3</div-->
+    <img class="contra" src="http://i.imgur.com/H53iM0j.jpg" style="width:100%;position:relative;top:25px;">
+  </div></a>
+ <!--style="background-image:url('https://astrobackyard.com/wp-content/uploads/2021/03/Order_of_planets.jpg');background-size:cover;background-position:center;"-->
+  <a href="https://astrobackyard.com/planets-in-order/"><div class="mySlides fade"><img class="contra" src="https://astrobackyard.com/wp-content/uploads/2021/03/Order_of_planets.jpg" width="100%">
+    <!--div class="numbertext">2 / 3</div-->
+  </div></a>
+
+  <a href="https://en.wikipedia.org/wiki/Solar_System"><div class="mySlides fade">
+    <!--div class="numbertext">3 / 3</div-->
+    <img class="contra" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Solar_System_true_color_%28captions%29.jpg/1200px-Solar_System_true_color_%28captions%29.jpg" style="width:100%">
+  </div></a>
+	
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center;float:left;margin-right:15px;width:400px">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+</div>
+        On June 22, NASA published a news release detailing all the steps it’s taken since last June to commercialize space, one of the latest being the signing of a Space Act Agreement with Virgin Galactic.<br><br>That agreement tasks Virgin Galactic with creating a private “astronaut readiness program,” identifying potential ISS visitors, coordinating their training and transport, and procuring any resources they’ll need aboard the space station.<br><br><big><b>The cost of one day on board the space station is $35,000.</b></big>Virgin Galactic already knows how to train private citizens for space tourism — in November 2019, the company launched its own Astronaut Readiness Program, providing its potential space tourists with training on moving in space and preparing for a space mission.<br><br>As for transportation, the only existing U.S. spacecraft that has proven capable of taking people to the ISS is SpaceX’s Crew Dragon, though Boeing’s troubled CST-100 Starliner hopes to complete its first crewed trip in 2021.
+      <p style="text-align: right;font-style: normal;line-height:1px;margin-right:3px;"><a class="contra" href="https://www.freethink.com/space/space-tourism">&#129030; Read More</a></p></td>
+  </tr>
+</table>
+<table id="rightT">
+  <tr>
+    <th><a href="https://edition.cnn.com/travel/article/space-perspective-patented-capsule-design-scn/index.html">Take a look at the ‘world’s only carbon-neutral spaceship’
+     <span style="float:right">
+				<svg width="20" height="20" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 39.9998H39.9998V0H0V39.9998Z" fill="#CC0000"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.12557 19.9999C8.12557 18.3172 9.4899 16.9532 11.1724 16.9532H13.4842V15.2271H11.1536C8.52173 15.2271 6.3804 17.3681 6.3804 20.0001C6.3804 22.6317 8.52173 24.7731 11.1536 24.7731L15.6412 24.7729C15.8922 24.7729 16.0941 24.5261 16.0941 24.3216V15.4811C16.0941 14.9937 16.3997 14.5829 16.8544 14.4589C17.2424 14.3532 17.7864 14.4604 18.1499 15.0784C18.1669 15.1069 19.2694 17.0074 20.9497 19.9039C22.2684 22.1781 23.6327 24.5298 23.6574 24.5716C23.7984 24.8113 23.9921 24.9246 24.1761 24.8746C24.2919 24.8431 24.4277 24.7309 24.4277 24.5184V15.4811C24.4279 14.9931 24.7324 14.5821 25.1854 14.4586C25.5709 14.3537 26.1122 14.4612 26.4756 15.0784C26.4917 15.1054 27.4664 16.7862 29.0702 19.5509C30.4886 21.9959 31.9551 24.5244 31.9827 24.5714C32.1239 24.8113 32.3179 24.9246 32.5016 24.8746C32.6174 24.8431 32.7532 24.7309 32.7532 24.5186V12.8104H31.0231V19.7811C31.0231 19.7811 28.1327 14.8016 27.9999 14.5761C26.1649 11.4592 22.6976 12.7474 22.6976 15.4306V19.7811C22.6976 19.7811 19.8072 14.8016 19.6744 14.5761C17.8394 11.4592 14.3722 12.7474 14.3721 15.4306V22.5611C14.3729 22.8204 14.1779 23.0464 13.8941 23.0468H11.1724C9.4899 23.0468 8.12557 21.6826 8.12557 19.9999Z" fill="white"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M33.4436 12.8104V24.5185C33.4436 25.0059 33.1379 25.4169 32.6833 25.5409C32.5996 25.5635 32.5088 25.5765 32.4139 25.5765C32.0689 25.5765 31.6731 25.406 31.3876 24.9214C31.3723 24.8954 30.2236 22.915 28.4733 19.8972C27.2103 17.7204 25.9046 15.4695 25.8804 15.4284C25.7394 15.189 25.5478 15.0754 25.3668 15.1247C25.2523 15.156 25.1181 15.2682 25.1181 15.4812V24.5185C25.1181 25.006 24.8124 25.4169 24.3576 25.5409C23.9696 25.6464 23.4258 25.5394 23.0621 24.9214C23.0474 24.8964 21.9794 23.0557 20.3524 20.2502C18.9894 17.901 17.5803 15.4715 17.5549 15.4284C17.4136 15.1885 17.2196 15.075 17.0361 15.125C16.9201 15.1567 16.7848 15.2689 16.7848 15.481L16.7844 24.3215C16.7844 24.9299 16.2503 25.4634 15.6413 25.4634H11.1536C8.14093 25.4634 5.6901 23.0125 5.6901 20C5.6901 16.9874 8.14093 14.5364 11.1536 14.5364H13.4843V12.8104H11.1554C7.18477 12.8104 3.96577 16.0292 3.96577 20C3.96577 23.9705 7.18477 27.1894 11.1554 27.1894H15.6868C17.4091 27.1905 18.5168 26.1812 18.5149 24.3195V20.2189C18.5149 20.2189 21.4049 25.1982 21.5379 25.4237C23.3729 28.5405 26.8404 27.2524 26.8404 24.5692V20.2189C26.8404 20.2189 29.7308 25.1982 29.8633 25.4237C31.6981 28.5405 35.1656 27.2524 35.1659 24.5692V12.8104H33.4436Z" fill="white"></path>
+</svg>
+
+		</span>
+      </a>
+      <hr class="header"></th>
+  </tr>
+  <tr>
+    <td><img src="https://media.cnn.com/api/v1/images/stellar/prod/220727110400-03-space-perspective.jpg?c=original&q=w_1280,c_fill" style="width:200px;float:left;margin-right:15px;margin-bottom: 10px;">The space tourism race is now firing on all rockets, but one company is hoping to carve out a niche as “the only carbon-neutral, zero-emission way” to travel to the edge of space.<br><br>
+
+Florida-based Space Perspective plans to take passengers up to 100,000 feet for suborbital adventures in a pressurized capsule suspended from an enormous high-tech version of a hot-air balloon. New images released July 27 show the latest patented capsule design for its Spaceship Neptune craft.<br><br>
+
+It’s a roomier interior than in previous iterations, with a spherical capsule design affording travelers more head height, as well as adding the safety benefit of being optimal for pressure resistance. And we get a better look at the luxury Space Lounge, with its deep reclining seats, mood lighting and well-stocked bar.<br><br>
+
+Reflective coated windows, similar to an astronaut’s helmet, are in place to help keep temperatures comfortable, while a new thermal control system is patent-pending.<br><br>
+
+Space Perspective worked on this fresh design with London-based studio Of My Imagination (OMI). The 360-degree panoramic views afforded by what Space Perspective describes as “the largest ever, patented windows to be taken to the edge of the space” were – in a satisfying example of nominative determinism – developed by Spaceship Neptune’s experience design lead Dan Window, along with experienced designer Isabella Trani.
+<br><br>
+Other improvements include a patent-pending splash cone for a smooth and safe water landing at sea.
+      <p style="text-align: right;font-style: normal;line-height:1px;margin-right:3px;"><a class="contra" href="https://edition.cnn.com/travel/article/space-perspective-patented-capsule-design-scn/index.html">&#129030; Read More</a></p></td>
+  </tr>
+</table>
+<hr>
+<center>
+  <p style="color:hsla(225,34%,28%,1.00);text-shadow:1px 1px #461629"> <a class="contra" href="https://www.reddit.com/r/StableDiffusion/comments/166ofn8/interstellar_departure/">Banner image</a> from <a class="contra" href="https://www.reddit.com/user/tvetus/">tvetus</a>, <a class="contra" href="https://www.reddit.com/r/StableDiffusion/">r/StableDiffution</a><br>
+    Designed by &copy;Jenny 211323 2023<br>
+    Part of project CP35214 - instructed by Prof. Jude</p>
+</center>
+</body>
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+	
+document.addEventListener('scroll', () => {
+  document.documentElement.dataset.scroll = window.scrollY;
+});
+</script>
+</html>
